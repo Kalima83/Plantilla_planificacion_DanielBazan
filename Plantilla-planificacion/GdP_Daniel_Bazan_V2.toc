@@ -1,0 +1,22 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}1. Descripción técnica-conceptual del proyecto a realizar}{5}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Introducción}{5}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Estado del arte}{5}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Proyecto}{6}{section.2}%
+\contentsline {section}{\numberline {3}2. Identificación y análisis de los interesados}{7}{section.3}%
+\contentsline {section}{\numberline {4}3. Propósito del proyecto}{7}{section.4}%
+\contentsline {section}{\numberline {5}4. Alcance del proyecto}{8}{section.5}%
+\contentsline {section}{\numberline {6}5. Supuestos del proyecto}{8}{section.6}%
+\contentsline {section}{\numberline {7}6. Product Backlog}{9}{section.7}%
+\contentsline {section}{\numberline {8}7. Criterios de aceptación de historias de usuario}{10}{section.8}%
+\contentsline {section}{\numberline {9}8. Fases de CRISP-DM}{11}{section.9}%
+\contentsline {section}{\numberline {10}9. Desglose del trabajo en tareas}{12}{section.10}%
+\contentsline {section}{\numberline {11}10. Planificación de Sprints}{14}{section.11}%
+\contentsline {section}{\numberline {12}11. Diagrama de Gantt (sprints)}{15}{section.12}%
+\contentsline {section}{\numberline {13}12. Gobernanza de datos}{16}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Cumplimiento normativo}{16}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Ética en el uso de inteligencia artificial}{16}{subsection.13.2}%
+\contentsline {section}{\numberline {14}13. Gestión de riesgos}{17}{section.14}%
+\contentsline {section}{\numberline {15}14. Sprint Review}{18}{section.15}%
+\contentsline {section}{\numberline {16}15. Sprint Retrospective}{19}{section.16}%
+\contentsfinish 

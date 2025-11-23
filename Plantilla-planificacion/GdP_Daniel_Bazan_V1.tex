@@ -1,0 +1,756 @@
+\documentclass[
+11pt, % The default document font size, options: 10pt, 11pt, 12pt
+%codirector, % Uncomment to add a codirector to the title page
+]{prueba} 
+
+
+% El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
+\titulo{Predicción de repuestos e insumos de electrónica según la falla reportada}
+
+
+% Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
+%\posgrado{Carrera de Especialización en Sistemas Embebidos} 
+%\posgrado{Carrera de Especialización en Internet de las Cosas} 
+\posgrado{Carrera de Especialización en Inteligencia Artificial}
+%\posgrado{Maestría en Sistemas Embebidos} 
+%\posgrado{Maestría en Internet de las cosas}
+
+% Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
+% IMPORTANTE: no omitir titulaciones ni tildación en los nombres, también se recomienda escribir los nombres completos (tal cual los tienen en su documento)
+\autor{Ing. Daniel Gerardo Bazán}
+
+% El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
+\director{Título y Nombre del director}
+\pertenenciaDirector{pertenencia} 
+\codirector{} % para que aparezca en la portada se debe descomentar la opción codirector en los parámetros de documentclass
+\pertenenciaCoDirector{FIUBA}
+
+% Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
+\cliente{Ing. Marcelo Alberto García}
+\empresaCliente{Batallón de Mantenimiento de Comunicaciones 601 - EA}
+ 
+\fechaINICIO{21 de octubre de 2025}		%Fecha de inicio de la cursada de GdP \fechaInicioName
+\fechaFINALPlan{09 de diciembre de 2025} 	%Fecha de final de cursada de GdP
+\fechaFINALTrabajo{15 de mayo de 2026}	%Fecha de defensa pública del trabajo final
+ 
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\pagebreak
+
+
+\thispagestyle{empty}
+{\setlength{\parskip}{0pt}
+\tableofcontents{}
+}
+\pagebreak
+
+
+\section*{Registros de cambios}
+\label{sec:registro}
+
+
+\begin{table}[ht]
+\label{tab:registro}
+\centering
+\begin{tabularx}{\linewidth}{@{}|c|X|c|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
+0      & Creación del documento                                 &\fechaInicioName \\ \hline
+1      & Se completa hasta el punto 5 inclusive                & {03} de {noviembre} de 2025 \\ \hline
+2      & Se completa hasta el punto 9 inclusive
+%		  Se puede agregar algo más \newline
+%		  En distintas líneas \newline
+		                                                      & {10} de {noviembre} de 2025 \\ \hline
+%3      & Se completa hasta el punto 12 inclusive                & {día} de {mes} de 202X \\ \hline
+%4      & Se completa el plan	                                 & {día} de {mes} de 202X \\ \hline
+
+% Si hay más correcciones pasada la versión 4 también se deben especificar acá
+
+\end{tabularx}
+\end{table}
+
+\pagebreak
+
+
+
+\section*{Acta de constitución del proyecto}
+\label{sec:acta}
+
+\begin{flushright}
+Buenos Aires, \fechaInicioName
+\end{flushright}
+
+\vspace{2cm}
+% Costo del proyecto Cant_hora*Precio de la hora = 600*10000
+
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en \textcolor{black}{la implementación del prototipo de un sistema de predicción de repuestos e insumos de acuerdo con las fallas que presenta el equipo electrónico}. El trabajo tendrá un presupuesto preliminar estimado de \textcolor{black}{600} horas y un costo estimado de \textcolor{black}{\$ 6.000.000}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+
+Se adjunta a esta acta la planificación inicial.
+
+\vfill
+
+% Esta parte se construye sola con la información que hayan cargado en el preámbulo del documento y no debe modificarla
+\begin{table}[ht]
+\centering
+\begin{tabular}{ccc}
+\begin{tabular}[c]{@{}c@{}}Dr. Ing. Ariel Lutenberg \\ Director posgrado FIUBA\end{tabular} & \hspace{2cm} & \begin{tabular}[c]{@{}c@{}}\clientename \\ \empclientename \end{tabular} \vspace{2.5cm} \\ 
+\multicolumn{3}{c}{\begin{tabular}[c]{@{}c@{}} \supname \\ Director del Trabajo Final\end{tabular}} \vspace{2.5cm} \\
+\end{tabular}
+\end{table}
+
+
+
+
+\section{1. Descripción técnica-conceptual del proyecto a realizar}
+\label{sec:descripcion}
+
+%\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+
+\section{Introducción}
+
+El Ejército Argentino (EA) cuenta con un sistema logístico para mantenimiento de equipamiento de electrónica. El \textbf{Batallón de Mantenimiento de Comunicaciones 601 (B Mant Com 601)}, situado en la localidad de City Bell – La Plata, es el elemento encargado de realizar esta tarea.
+
+La situación particular se presenta en que los elementos dependientes del EA, a quienes pertenecen los efectos electrónicos, se encuentran desplegados en todo el territorio nacional. 
+
+Considerando que las tareas de mantenimiento y reparación se realizan \textit{in situ}, el Centro de Mantenimiento cuenta con un programa que contempla recorrer todos los elementos del EA en un periodo de tres años. Para ello, se dispone de la logística necesaria que incluye el instrumental específico, los insumos y los repuestos requeridos para la ejecución de los trabajos.
+
+Para el planeamiento, preparación y ejecución del programa de mantenimiento, los elementos seleccionados deben elevar al Centro de Mantenimiento un informe con el detalle de todos los efectos electrónicos, en el cual se deben especificar los siguientes datos:
+
+\begin{itemize}
+    \item \textbf{Nombre Nacional de Efecto (NNE):} según la catalogación interna del EA. Ejemplo: \textit{Radio HF Yaesu 470}.
+    \item \textbf{Número de Identificación (NI):} número único asignado a cada equipo, conforme a la catalogación interna. Ejemplo: \textit{C421}.
+    \item \textbf{Cantidad de efectos fuera de servicio.}
+    \item \textbf{Fallas que presenta cada equipo.}
+\end{itemize}
+
+A partir de los datos mencionados, y utilizando tanto estadísticas como la experiencia de los técnicos especialistas en cada rubro, se elabora una lista de repuestos e insumos necesarios para su adquisición. Dado que el presupuesto destinado a tal fin constituye un recurso finito, esta etapa resulta crítica para optimizar la planificación de las compras.
+
+Los requerimientos, una vez aprobados por las distintas instancias administrativas, son sometidos a un proceso de licitación abierta a proveedores del Estado. El proceso de compra antes descrito requiere entre cuatro y seis meses para adquisiciones locales, y de seis a doce meses para compras en el exterior. Dichos plazos son gestionados por otros organismos del EA, fuera del control directo del Centro de Mantenimiento.
+
+\section{Estado del arte}
+
+A nivel internacional, las estrategias de mantenimiento basadas en condición (Condition-Based Maintenance, CBM/CBM+) integran técnicas de mantenimiento predictivo con inteligencia artificial (IA) y la gestión de repuestos, reportando mejoras significativas en disponibilidad y reducción de costos cuando se normalizan los datos de mantenimiento y los catálogos de partes. Diversas revisiones sistemáticas (Ignatenko, 2025; Lee et al., 2023; Tharinda et al., 2025) muestran la madurez de los modelos de aprendizaje automático (Machine Learning, ML) para anticipar fallas y conectar dichas predicciones con planes de inventario y compras. 
+
+En el ámbito de defensa, marcos doctrinarios como la \textit{Condition-Based Maintenance Plus (CBM+)} del Departamento de Defensa de los Estados Unidos (Department of Defense, 2024) establecen lineamientos específicos para la adopción de tecnologías de mantenimiento predictivo, mientras que la Organización del Tratado del Atlántico Norte (OTAN) promueve una hoja de ruta orientada a la implementación de capacidades CBM en sistemas complejos. En el sector industrial, la literatura técnica (Nabil et al., 2025) y diversos reportes de consultoras especializadas (KPMG, 2025) destacan la importancia de integrar los algoritmos predictivos con los sistemas de gestión de inventario y compras, priorizando el abastecimiento de piezas críticas y reduciendo los tiempos de reposición.
+
+A nivel regional, Brasil ha incorporado la \textit{manutenção preditiva} como parte de sus procesos oficiales de mantenimiento en el ámbito del Exército Brasileiro, combinando servicios predictivos con la provisión de repuestos e insumos. En Chile, investigaciones recientes sobre mantenimiento predictivo con IA evidencian un avance sostenido en la aplicación de algoritmos de aprendizaje automático a la predicción de fallas en sistemas electrónicos e industriales, aunque aún persisten limitaciones vinculadas a la disponibilidad y calidad de los datos.
+
+En el contexto argentino, el concepto de mantenimiento predictivo ha sido impulsado en el marco de la Industria 4.0, promovido por organismos públicos y privados. Existen experiencias relevantes de aplicación de IA en entornos operativos de gran escala, como los centros de inteligencia operativa de YPF, que demuestran la viabilidad del uso de analítica avanzada para la optimización de operaciones distribuidas. 
+
+El estado del arte muestra una tendencia global hacia la integración de la analítica predictiva y el mantenimiento basado en condición con la gestión automatizada de repuestos e insumos. Esta convergencia tecnológica permite anticipar requerimientos logísticos, optimizar licitaciones y reducir los tiempos de inactividad, constituyendo un marco de referencia sólido para el desarrollo del presente proyecto aplicado al mantenimiento del equipamiento electrónico del Ejército Argentino.
+
+\section{Proyecto}
+
+El presente trabajo se desarrollará en el B Mant Com 601 dedicada al mantenimiento y reparación de una amplia gama de equipos electrónicos, incluyendo: sistemas de comunicaciones (militarizados y no militarizados), centrales telefónicas, equipos informáticos, simuladores y tecnología satelital, entre otros. 
+
+La diversidad de dispositivos y la falta de acceso físico previo al material a reparar dificultan la identificación precisa de fallas y la determinación de los repuestos necesarios. Esta situación obliga a realizar solicitudes de compra de insumos con hasta seis meses de antelación, basadas en estimaciones estadísticas y en la experiencia de los técnicos especialistas, lo que genera procesos de adquisición ineficientes.
+
+En respuesta a esta problemática, el desarrollo propuesto en este proyecto busca optimizar la gestión de compra de repuestos e insumos, mejorando la precisión en las estimaciones de los requerimientos de acuerdo con las fallas que presenta cada equipo electrónico, reduciendo los márgenes de error y optimizando los tiempos de respuesta de los requerimientos.
+
+\begin{enumerate}
+    \item El \textit{dataset} será elaborado a partir de la base de datos del Ejército Argentino, con el apoyo de los especialistas técnicos electrónicos que registran sistemáticamente las actividades de mantenimiento y reparación.
+    \item Además, este \textit{dataset} podrá ser enriquecido con la información proveniente de los programas de mantenimiento posteriores, mejorando de esta manera el entrenamiento de los modelos de inteligencia artificial utilizados en el sistema.
+\end{enumerate}
+
+\section{Bloques del Proyecto y entregable}
+
+El proyecto cuanta con nueve bloques (figura 1) según la siguiente descripción:
+
+\begin{enumerate}
+    \item \textbf{Base de datos inicial.}
+    Generada por los especialistas técnicos; contiene repuestos e insumos asociados a cada tipo de falla y a los efectos (NNE y NI).
+
+    \item \textbf{Carga de la base de datos de efectos electrónicos por usuario.}
+    Validación de que la cantidad de efectos declarada por cada usuario coincide con el sistema de control de efectos del EA.
+
+    \item \textbf{Procesamiento y limpieza de datos.}
+    Normalización, validación y estructuración de históricos de fallas, repuestos e insumos.
+
+    \item \textbf{Generación del modelo de predicción.}
+    Entrenamiento inicial del modelo de IA con los datos históricos disponibles.
+
+    \item \textbf{API de interacción con usuarios.}
+    Ingreso operativo de reportes: selección por \textit{NI}/\textit{NNE}, cantidad fuera de servicio (F/S), selección de falla y descripción en lenguaje natural.
+
+    \item \textbf{Ejecución del modelo (inferencia) con datos de la API.}
+    El modelo previamente entrenado procesa los reportes recibidos y produce predicciones \emph{sin modificar sus parámetros}; no hay actualización del modelo en este paso.
+
+    \item \textbf{Generación del resultado.}
+    Emisión de la lista sugerida de repuestos e insumos en función de las inferencias del modelo.
+
+    \item \textbf{Control de resultados por especialistas.}
+    Validación técnica del listado generado, con correcciones/ajustes cuando corresponda.
+
+    \item \textbf{Retroalimentación y reentrenamiento del modelo.}
+    Incorporación de los resultados reales del mantenimiento y reparación para actualizar periódicamente el modelo y mejorar su desempeño futuro.
+\end{enumerate}
+
+
+Este proyecto, además, podrá contar con agentes de control que permitirán:
+
+\begin{itemize}
+    \item Guardar especificaciones técnicas relevantes de componentes y equipos electrónicos.
+    \item Realizar el control de stock de insumos y repuestos.
+    \item Mantener un historial de reparaciones de los efectos, agrupados por categorías (equipos de comunicaciones RF, satelitales, informática, guerra electrónica), por Nombre Nacional de Efecto (NNE) y por Número de Identificación (NI).
+\end{itemize}
+
+Asimismo, podría incluir un módulo de generación de informes estadísticos que permitirá conocer el estado de mantenimiento de los equipos a nivel del Ejército Argentino y evaluar la eficiencia de los programas de mantenimiento implementados.
+
+
+%El objetivo es que el lector, en una o dos páginas, exponga de qué se trata el proyecto y cuáles son sus desafíos, cuál es la motivación para realizarlo y su importancia.
+
+%Se debe introducir el contexto del proyecto, el estado del arte en la temática, describir la propuesta de valor, cuál es el problema que atiende y cuál es la solución que se propone. Se debe dar una descripción funcional de la solución que incluya un diagrama en bloques.
+
+%Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
+
+%\begin{itemize}
+	%\item ¿Cuál es el contexto del proyecto, es un emprendimiento personal, un proyecto para una empresa, es parte del programa de vinculación con empresas del posgrado?
+	%\item ¿Existen o aplican condiciones especiales al proyecto, financiamiento de algún programa público o privado, acuerdos de confidencialidad, acuerdos sobre la propiedad intelectual de los entregables u otros?
+	%\item ¿Cómo se compara la solución propuesta con el estado del arte en el campo de aplicación? ¿En qué aspectos destaca?
+	%\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
+	%\item ¿En qué estado del ciclo de vida está la solución que se propone?
+	%\item ¿Cuáles son las características del cliente (el adoptante de los entregables del proyecto) qué valora, qué necesita?
+	%\item ¿Por dónde pasa la innovación?
+%\end{itemize}
+
+%La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y descripción funcional de la solución propuesta.
+
+%Las figuras se deben mencionar en el texto ANTES de que aparezcan con una frase como la siguiente: ``En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''.  La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
+
+\begin{figure}[htpb]
+\centering 
+\includegraphics[width=1\textwidth]{./Figuras/diagrama_proyecto.png}
+\caption{Diagrama en bloques del sistema.}
+\label{fig:diagBloques}
+\end{figure}
+
+\vspace{5px}
+
+%El tamaño del texto en TODAS las figuras debe ser adecuado \textbf{para que NO pase lo que ocurre en la figura \ref{fig:diagBloques}}, donde el lector debe esforzarse para poder leer el texto. 
+
+%Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama. Se recomienda evitar colores primarios (como rojo, verde o cyan) y usar la gama de colores pastel.
+
+%\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+
+\section{2. Identificación y análisis de los interesados}
+\label{sec:interesados}
+
+%\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+%\textbf{Nota importante:} borrar esto y todas las consignas en color rojo antes de entregar este documento). Esto se hace eliminando el par de comandos que forman el bloque consigna, \verb!\begin{consigna}{red}! y \verb!\end{consigna}{red}! del código. 
+ 
+%Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos. Si se considera que una persona cumple dos o más roles, entonces \textbf{solo dejarla en el rol más importante}. 
+
+%Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente. Si una persona es el Responsable, \textbf{no debe ser colocado también como miembro del equipo}.
+
+
+\begin{table}[ht]
+%\caption{Identificación de los interesados}
+%\label{tab:interesados}
+\begin{tabularx}{\linewidth}{@{}|l|X|X|l|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
+Auspiciante   &                   & Ejército Argentino    	&        	\\ \hline
+Cliente       & \clientename      &\empclientename	& Jefe       	\\ \hline
+Impulsor      &      --             &    --          	&   --     	\\ \hline
+Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
+Colaboradores &       --            &      --        	&    --    	\\ \hline
+Orientador    & \supname	      & \pertesupname 	& Director del Trabajo Final \\ \hline
+Equipo        & Especialistas del B Mant Com 601 
+				         &       --       	&    --    	\\ \hline
+Opositores    &      --             &       --       	&    --    	\\ \hline
+Usuario final &    -- &        B Mant Com 601      	&       --\\ \hline
+\end{tabularx}
+\end{table}
+
+%El Director suele ser uno de los orientadores.
+
+%No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
+
+%No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
+
+%Es deseable listar a continuación las principales características de cada interesado.
+ 
+%Por ejemplo:
+%\begin{itemize}
+	%\item Orientador: la Dra. Ing. María Gómez es experta en la temática y va a ayudar con la definición de los requerimientos y el desarrollo del firmware del embebido.
+	%\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
+	%\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
+%\end{itemize}
+
+%\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+
+
+\section{3. Propósito del proyecto}
+\label{sec:proposito}
+
+Mejorar la deficiencia en la adquisición de insumos y repuestos para la reparación de equipos electrónicos del EA.
+
+%\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+
+%¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
+
+%Se recomienda que sea solo un párrafo que continúe con la idea de la frase ``el propósito de este proyecto es...'' (omitir la frase, ya que está en el título de la sección).
+%\end{consigna}
+
+\section{4. Alcance del proyecto}
+\label{sec:alcance}
+
+%\begin{consigna}{red}
+%¿Qué se incluye y que no se incluye en este proyecto?
+
+%Se refiere al trabajo que se va a hacer para entregar el producto o resultado especificado. 
+
+%Explicitar todo lo quede comprendido dentro del alcance del proyecto. Por ejemplo:
+
+El proyecto incluye:
+\begin{itemize}
+	\item API para la carga de datos por parte de los usuarios a solicitar mantenimiento.
+	\item Sistema de procesamiento de datos.
+		\begin{itemize}
+		\item Lista de repuestos separados por tipo de efecto.
+		\item Lista de insumos.
+		\item Listado de efectos a reparar por usuarios o efectos (NNE) según lo solicitado por el usuario.
+		\end{itemize}
+	%\item ...
+	
+\end{itemize}
+El proyecto no incluye mejoras propuestas como:
+\begin{itemize}
+    \item Guardar especificaciones técnicas relevantes de componentes y equipos electrónicos.
+    \item Realizar el control de stock de insumos y repuestos.
+    \item Mantener un historial de reparaciones de los efectos, agrupados por categorías (equipos de comunicaciones RF, satelitales, informática, guerra electrónica), por Nombre Nacional de Efecto (NNE) y por Número de Identificación (NI).
+    \item módulo de generación de informes estadísticos
+\end{itemize}
+
+
+%Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
+
+%\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+
+
+\section{5. Supuestos del proyecto}
+\label{sec:supuestos}
+
+%\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+Para el desarrollo del presente proyecto se supone que:
+
+\begin{itemize}
+    \item El B Mant Com 601 pone a disposición todos los especialistas necesarios para la ejecución de las tareas técnicas y de validación.
+    \item Se cuenta con acceso a los sistemas de registro de efectos electrónicos del EA, que permiten identificar los equipos asignados a cada usuario.
+    \item Se dispone del entorno \textit{Cloud} del EA para el montaje, prueba y operación de la API desarrollada.
+\end{itemize}
+
+%Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
+
+%\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+
+\section{6. Requerimientos}
+\label{sec:requerimientos}
+
+\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+Los requerimientos deben enumerarse y de ser posible estar agrupados por afinidad, por ejemplo:
+
+\begin{enumerate}
+	\item Requerimientos funcionales:
+		\begin{enumerate}
+			\item El sistema debe...
+			\item Tal componente debe...
+			\item El usuario debe poder...
+		\end{enumerate}
+	\item Requerimientos de documentación:
+		\begin{enumerate}
+			\item Requerimiento 1.
+			\item Requerimiento 2 (prioridad menor)
+		\end{enumerate}
+	\item Requerimiento de testing...
+	\item Requerimientos de la interfaz...
+	\item Requerimientos interoperabilidad...
+	\item etc...
+\end{enumerate}
+
+Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
+
+Indicar claramente cuál es la prioridad entre los distintos requerimientos y si hay requerimientos opcionales. 
+
+\textbf{¡¡¡No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!}
+
+Y al escribirlos seguir las siguientes reglas:
+\begin{itemize}
+	\item Ser breve y conciso (nadie lee cosas largas). 
+	\item Ser específico: no dejar lugar a confusiones.
+	\item Expresar los requerimientos en términos que sean cuantificables y medibles.
+\end{itemize}
+
+\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+
+\section{7. Historias de usuarios (\textit{Product backlog})}
+\label{sec:backlog}
+
+\begin{consigna}{red}
+Descripción: en esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
+
+Se debe indicar explícitamente el criterio para calcular los \textit{story points} de cada historia.
+
+El formato propuesto es: 
+\begin{enumerate}
+\item ``Como [rol] quiero [tal cosa] para [tal otra cosa]."
+
+\textit{Story points}: 8 (complejidad: 3, dificultad: 2, incertidumbre: 3)
+\end{enumerate}
+\end{consigna}
+
+\section{8. Entregables principales del proyecto}
+\label{sec:entregables}
+
+\begin{consigna}{red}
+Los entregables del proyecto son (ejemplo):
+
+\begin{itemize}
+	\item Manual de usuario.
+	\item Diagrama de circuitos esquemáticos.
+	\item Código fuente del firmware.
+	\item Diagrama de instalación.
+	\item Memoria del trabajo final.
+	\item etc...
+\end{itemize}
+\end{consigna}
+
+\section{9. Desglose del trabajo en tareas}
+\label{sec:wbs}
+
+\begin{consigna}{red}
+El WBS debe tener relación directa o indirecta con los requerimientos.  Son todas las actividades que se harán en el proyecto para dar cumplimiento a los requerimientos. Se recomienda mostrar el WBS mediante una lista indexada:
+
+\begin{enumerate}
+\item Grupo de tareas 1 (suma h)
+	\begin{enumerate}
+	\item Tarea 1 (tantas h)
+	\item Tarea 2 (tantas h)
+	\item Tarea 3 (tantas h)
+	\end{enumerate}
+\item Grupo de tareas 2 (suma h)
+	\begin{enumerate}
+	\item Tarea 1 (tantas h)
+	\item Tarea 2 (tantas h)
+	\item Tarea 3 (tantas h)
+	\end{enumerate}
+\item Grupo de tareas 3 (suma h)
+	\begin{enumerate}
+	\item Tarea 1 (tantas h)
+	\item Tarea 2 (tantas h)
+	\item Tarea 3 (tantas h)
+	\item Tarea 4 (tantas h)
+	\item Tarea 5 (tantas h)
+	\end{enumerate}
+\end{enumerate}
+
+Cantidad total de horas: tantas.
+
+\textbf{¡Importante!:} la unidad de horas es h y va separada por espacio del número. Es incorrecto escribir ``23hs".
+
+\textbf{Se recomienda que no haya ninguna tarea que lleve más de 40 h.} De ser así se recomienda dividirla en tareas de menor duración.
+
+\end{consigna}
+
+\section{10. Diagrama de Activity On Node}
+\label{sec:AoN}
+
+\begin{consigna}{red}
+Armar el AoN a partir del WBS definido en la etapa anterior.
+
+Una herramienta simple para desarrollar los diagramas es el Draw.io (\url{https://app.diagrams.net/}).
+\href{https://app.diagrams.net}{Draw.io}
+
+
+\begin{figure}[htpb]
+\centering 
+\includegraphics[width=.8\textwidth]{./Figuras/AoN.png}
+\caption{Diagrama de \textit{Activity on Node}.}
+\label{fig:AoN}
+\end{figure}
+
+Indicar claramente en qué unidades están expresados los tiempos.
+De ser necesario indicar los caminos semi críticos y analizar sus tiempos mediante un cuadro.
+Es recomendable usar colores y un cuadro indicativo describiendo qué representa cada color.
+
+\end{consigna}
+
+\section{11. Diagrama de Gantt}
+\label{sec:gantt}
+
+\begin{consigna}{red}
+Existen muchos programas y recursos \textit{online} para hacer diagramas de Gantt, entre los cuales destacamos:
+
+\begin{itemize}
+\item Planner
+\item GanttProject
+\item Trello + \textit{plugins}. En el siguiente link hay un tutorial oficial: \\ \url{https://blog.trello.com/es/diagrama-de-gantt-de-un-proyecto}
+\item Creately, herramienta online colaborativa. \\\url{https://creately.com/diagram/example/ieb3p3ml/LaTeX}
+\item Se puede hacer en latex con el paquete \textit{pgfgantt}\\ \url{http://ctan.dcc.uchile.cl/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf}
+\end{itemize}
+
+Pegar acá una captura de pantalla del diagrama de Gantt, cuidando que la letra sea suficientemente grande como para ser legible. 
+Si el diagrama queda demasiado ancho, se puede pegar primero la ``tabla'' del Gantt y luego pegar la parte del diagrama de barras del diagrama de Gantt.
+
+Configurar el software para que en la parte de la tabla muestre los códigos del EDT (WBS).\\
+Configurar el software para que al lado de cada barra muestre el nombre de cada tarea.\\
+Revisar que la fecha de finalización coincida con lo indicado en el Acta Constitutiva.
+
+En la figura \ref{fig:gantt}, se muestra un ejemplo de diagrama de gantt realizado con el paquete de \textit{pgfgantt}. 
+En la plantilla pueden ver el código que lo genera y usarlo de base para construir el propio.
+
+Las fechas pueden ser calculadas utilizando alguna de las herramientas antes citadas. Sin embargo, el siguiente ejemplo
+fue elaborado utilizando 
+\href{https://docs.google.com/spreadsheets/d/1fBz8NhSpc4tkkhz3KjJCbh1nR_ltDkfEcZi4tZXduqs}{esta hoja de cálculo}.
+
+Es importante destacar que el ancho del diagrama estará dado por la longitud del texto utilizado para las tareas 
+(Ejemplo: tarea 1, tarea 2, etcétera) y el valor \textit{x unit}. Para mejorar la apariencia del diagrama, es necesario
+ajustar este valor y, quizás, acortar los nombres de las tareas.
+
+\begin{figure}[htpb]
+  \begin{center}
+    \begin{ganttchart}[
+      time slot unit=day,
+      time slot format=isodate,
+      x unit=0.038cm,
+      y unit title=0.7cm,
+      y unit chart=0.6cm,
+      milestone/.append style={xscale=4}
+      ]{2021-03-05}{2021-12-16}
+      \gantttitlecalendar*{2021-03-05}{2021-12-16}{year} \\
+      \gantttitlecalendar*{2021-03-05}{2021-12-16}{month} \\
+      \ganttgroup{Duración Total}{2021-03-05}{2021-12-16} \\
+      %%%%%%%%%%%%%%%%%Organización
+      \ganttgroup{Organización}{2021-03-05}{2021-04-16} \\
+      \ganttbar{Planificación del proyecto}{2021-03-05}{2021-04-15} \\
+      %%%%%%%%%%%%%%%%%Ejecución
+      \ganttgroup{Ejecución}{2021-04-16}{2021-10-21} \\
+      \ganttbar{Tarea 1}{2021-04-16}{2021-04-29} \\
+      \ganttbar{Tarea 2}{2021-04-30}{2021-05-13} \\
+      \ganttbar{Tarea 3}{2021-05-14}{2021-05-27} \\
+      \ganttbar{Tarea 4}{2021-05-28}{2021-07-12} \\
+      \ganttbar{Tarea 5}{2021-07-13}{2021-08-09} \\
+      \ganttbar{Tarea 6}{2021-08-10}{2021-09-23} \\
+      \ganttbar{Tarea 7}{2021-09-24}{2021-09-30} \\
+      \ganttbar{Tarea 8}{2021-10-01}{2021-10-14} \\
+      \ganttbar{Tarea 9}{2021-10-15}{2021-10-21} \\
+      % %%%%%%%%%%%%%%%%%Finalización
+      \ganttgroup{Finalización}{2021-10-22}{2021-12-16} \\
+      \ganttbar{Memoria v1}{2021-10-22}{2021-11-04} \\
+      \ganttbar{Memoria v2}{2021-11-05}{2021-11-18} \\
+      \ganttbar{Memoria final}{2021-11-19}{2021-12-02} \\
+      % La fecha del siguiente milestone es la fecha en que terminamos la memoria
+      \ganttmilestone{Enviar memoria al director}{2021-12-02} \\
+      \ganttbar{Elaborar la presentación}{2021-12-03}{2021-12-16} \\
+      \ganttmilestone{Ensayo de la presentación}{2021-12-16} \\
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \end{ganttchart}
+  \end{center}
+  \caption{Diagrama de gantt de ejemplo}
+  \label{fig:gantt}
+\end{figure}
+
+
+\begin{landscape}
+\begin{figure}[htpb]
+\centering 
+\includegraphics[height=.85\textheight]{./Figuras/Gantt-2.png}
+\caption{Ejemplo de diagrama de Gantt (apaisado).} %Modificar este título acorde.
+\label{fig:diagGantt}
+\end{figure}
+
+\end{landscape}
+
+\end{consigna}
+
+
+\section{12. Presupuesto detallado del proyecto}
+\label{sec:presupuesto}
+
+\begin{consigna}{red}
+Si el proyecto es complejo entonces separarlo en partes:
+\begin{itemize}
+	\item Un total global, indicando el subtotal acumulado por cada una de las áreas.
+	\item El desglose detallado del subtotal de cada una de las áreas.
+\end{itemize}
+
+IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
+
+Incluir la aclaración de si se emplea como moneda el peso argentino (ARS) o si se usa moneda extranjera (USD, EUR, etc). Si es en moneda extranjera se debe indicar la tasa de conversión respecto a la moneda local en una fecha dada.
+
+\end{consigna}
+
+\begin{table}[htpb]
+\centering
+\begin{tabularx}{\linewidth}{@{}|X|c|r|r|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+\multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS DIRECTOS} \\ \hline
+\rowcolor[HTML]{C0C0C0} 
+Descripción &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
+ &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{} \\ \hline
+ &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{} \\ \hline
+\multicolumn{1}{|l|}{} &
+   &
+   &
+   \\ \hline
+\multicolumn{1}{|l|}{} &
+   &
+   &
+   \\ \hline
+\multicolumn{3}{|c|}{SUBTOTAL} &
+  \multicolumn{1}{c|}{} \\ \hline
+\rowcolor[HTML]{C0C0C0} 
+\multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
+\rowcolor[HTML]{C0C0C0} 
+Descripción &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
+\multicolumn{1}{|l|}{} &
+   &
+   &
+   \\ \hline
+\multicolumn{1}{|l|}{} &
+   &
+   &
+   \\ \hline
+\multicolumn{1}{|l|}{} &
+   &
+   &
+   \\ \hline
+\multicolumn{3}{|c|}{SUBTOTAL} &
+  \multicolumn{1}{c|}{} \\ \hline
+\rowcolor[HTML]{C0C0C0}
+\multicolumn{3}{|c|}{TOTAL} &
+   \\ \hline
+\end{tabularx}%
+\end{table}
+
+
+\section{13. Gestión de riesgos}
+\label{sec:riesgos}
+
+\begin{consigna}{red}
+a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
+ 
+Riesgo 1: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos de forma negativa)
+\begin{itemize}
+	\item Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).\\
+	Justificar el motivo por el cual se asigna determinado número de severidad (S).
+	\item Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).\\
+	Justificar el motivo por el cual se asigna determinado número de (O). 
+\end{itemize}   
+
+Riesgo 2:
+\begin{itemize}
+	\item Severidad (S): X.\\
+	Justificación...
+	\item Ocurrencia (O): Y.\\
+	Justificación...
+\end{itemize}
+
+Riesgo 3:
+\begin{itemize}
+	\item Severidad (S):  X.\\
+	Justificación...
+	\item Ocurrencia (O): Y.\\
+	Justificación...
+\end{itemize}
+
+
+b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
+
+\begin{table}[htpb]
+\centering
+\begin{tabularx}{\linewidth}{@{}|X|c|c|c|c|c|c|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
+       &   &   &     &    &    &      \\ \hline
+       &   &   &     &    &    &      \\ \hline
+       &   &   &     &    &    &      \\ \hline
+       &   &   &     &    &    &      \\ \hline
+       &   &   &     &    &    &      \\ \hline
+\end{tabularx}%
+\end{table}
+
+Criterio adoptado: 
+
+Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a...
+
+Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
+
+c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
+ 
+Riesgo 1: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+  Nueva asignación de S y O, con su respectiva justificación:
+  \begin{itemize}
+	\item Severidad (S*): mientras más severo, más alto es el número (usar números del 1 al 10).
+          Justificar el motivo por el cual se asigna determinado número de severidad (S).
+	\item Probabilidad de ocurrencia (O*): mientras más probable, más alto es el número (usar del 1 al 10).
+          Justificar el motivo por el cual se asigna determinado número de (O).
+	\end{itemize}
+
+Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+ 
+Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+
+\end{consigna}
+
+
+\section{14. Gestión de la calidad}
+\label{sec:calidad}
+
+\begin{consigna}{red}
+Elija al menos diez requerimientos que a su criterio sean los más importantes/críticos/que aportan más valor y para cada uno de ellos indique las acciones de verificación y validación que permitan asegurar su cumplimiento.
+
+\begin{itemize} 
+\item Req \#1: copiar acá el requerimiento con su correspondiente número.
+
+\begin{itemize}
+	\item Verificación para confirmar si se cumplió con lo requerido antes de mostrar el sistema al cliente. Detallar.
+	\item Validación con el cliente para confirmar que está de acuerdo en que se cumplió con lo requerido. Detallar. 
+\end{itemize}
+
+\end{itemize}
+
+Tener en cuenta que en este contexto se pueden mencionar simulaciones, cálculos, revisión de hojas de datos, consulta con expertos, mediciones, etc.  
+
+Las acciones de verificación suelen considerar al entregable como ``caja blanca'', es decir se conoce en profundidad su funcionamiento interno.  
+
+En cambio, las acciones de validación suelen considerar al entregable como ``caja negra'', es decir, que no se conocen los detalles de su funcionamiento interno.
+
+\end{consigna}
+
+\section{15. Procesos de cierre}    
+\label{sec:cierre}
+
+\begin{consigna}{red}
+Establecer las pautas de trabajo para realizar una reunión final de evaluación del proyecto, tal que contemple las siguientes actividades:
+
+\begin{itemize}
+	\item Pautas de trabajo que se seguirán para analizar si se respetó el Plan de Proyecto original:\\
+	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento a aplicar. 
+	\item Identificación de las técnicas y procedimientos útiles e inútiles que se emplearon, los problemas que surgieron y cómo se solucionaron:\\
+	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento para dejar registro.
+	\item Indicar quién organizará el acto de agradecimiento a todos los interesados, y en especial al equipo de trabajo y colaboradores:\\
+	  - Indicar esto y quién financiará los gastos correspondientes.
+\end{itemize}
+
+\end{consigna}
+
+\end{document}

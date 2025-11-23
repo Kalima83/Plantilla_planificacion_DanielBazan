@@ -1,0 +1,953 @@
+\documentclass[
+11pt, % The default document font size, options: 10pt, 11pt, 12pt
+%codirector, % Uncomment to add a codirector to the title page
+]{prueba} 
+
+
+% El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
+\titulo{Predicción necesidades de repuestos e insumos según de fallos}
+
+
+% Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
+%\posgrado{Carrera de Especialización en Sistemas Embebidos} 
+%\posgrado{Carrera de Especialización en Internet de las Cosas} 
+\posgrado{Carrera de Especialización en Inteligencia Artificial}
+%\posgrado{Maestría en Sistemas Embebidos} 
+%\posgrado{Maestría en Internet de las cosas}
+
+% Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
+% IMPORTANTE: no omitir titulaciones ni tildación en los nombres, también se recomienda escribir los nombres completos (tal cual los tienen en su documento)
+\autor{Ing. Daniel Gerardo Bazán}
+
+% El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
+\director{Dr. Camilo Enrique Argoty Pulido}
+\pertenenciaDirector{FIUBA} 
+\codirector{} % para que aparezca en la portada se debe descomentar la opción codirector en los parámetros de documentclass
+\pertenenciaCoDirector{FIUBA}
+
+% Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
+\cliente{Ing. Marcelo Alberto García}
+\empresaCliente{Batallón de Mantenimiento de Comunicaciones 601 - EA}
+ 
+\fechaINICIO{21 de octubre de 2025}		%Fecha de inicio de la cursada de GdP \fechaInicioName
+\fechaFINALPlan{09 de diciembre de 2025} 	%Fecha de final de cursada de GdP
+\fechaFINALTrabajo{15 de junio de 2026}	%Fecha de defensa pública del trabajo final
+ 
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\pagebreak
+
+
+\thispagestyle{empty}
+{\setlength{\parskip}{0pt}
+\tableofcontents{}
+}
+\pagebreak
+
+
+\section*{Registros de cambios}
+\label{sec:registro}
+
+
+\begin{table}[ht]
+\label{tab:registro}
+\centering
+\begin{tabularx}{\linewidth}{@{}|c|X|c|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
+0      & Creación del documento                                 &\fechaInicioName \\ \hline
+1      & Se completa hasta el punto 5 inclusive                & {03} de {noviembre} de 2025 \\ \hline
+2      & Se completa hasta el punto 9 inclusive
+%		  Se puede agregar algo más \newline
+%		  En distintas líneas \newline
+		                                                      & {11} de {noviembre} de 2025 \\ \hline
+3      & Se completa hasta el punto 12 inclusive                & {22} de {noviembre} de 2025 \\ \hline
+%4      & Se completa el plan	                                 & {día} de {mes} de 202X \\ \hline
+
+% Si hay más correcciones pasada la versión 4 también se deben especificar acá
+
+\end{tabularx}
+\end{table}
+
+\pagebreak
+
+
+
+\section*{Acta de constitución del proyecto}
+\label{sec:acta}
+
+\begin{flushright}
+Buenos Aires, \fechaInicioName
+\end{flushright}
+
+\vspace{2cm}
+% Costo del proyecto Cant_hora*Precio de la hora = 600*10000
+
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en \textcolor{black}{la implementación del prototipo de un sistema de predicción de repuestos e insumos de acuerdo con las fallas que presenta el equipo electrónico}. El trabajo tendrá un presupuesto preliminar estimado de \textcolor{black}{600} horas y un costo estimado de \textcolor{black}{\$ 6.000.000}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+
+Se adjunta a esta acta la planificación inicial.
+
+\vfill
+
+% Esta parte se construye sola con la información que hayan cargado en el preámbulo del documento y no debe modificarla
+\begin{table}[ht]
+\centering
+\begin{tabular}{ccc}
+\begin{tabular}[c]{@{}c@{}}Dr. Ing. Ariel Lutenberg \\ Director posgrado FIUBA\end{tabular} & \hspace{2cm} & \begin{tabular}[c]{@{}c@{}}\clientename \\ \empclientename \end{tabular} \vspace{2.5cm} \\ 
+\multicolumn{3}{c}{\begin{tabular}[c]{@{}c@{}} \supname \\ Director del Trabajo Final\end{tabular}} \vspace{2.5cm} \\
+\end{tabular}
+\end{table}
+
+
+
+
+\section{1. Descripción técnica-conceptual del proyecto a realizar}
+\label{sec:descripcion}
+
+%\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+
+\subsection{Introducción}
+
+El Ejército Argentino (EA) cuenta con un sistema logístico para mantenimiento de equipamiento de electrónica. El \textbf{Batallón de Mantenimiento de Comunicaciones 601 (B Mant Com 601)}, situado en la localidad de City Bell – La Plata, es la dependencia encargada de realizar esta tarea.
+
+La situación particular se presenta en que los elementos dependientes del EA, a quienes pertenecen los efectos electrónicos, se encuentran desplegados en todo el territorio nacional. 
+
+Considerando que las tareas de mantenimiento y reparación se realizan \textit{in situ}, el Centro de Mantenimiento cuenta con un programa que contempla recorrer todos los elementos del EA en un periodo de tres años. Para ello, se dispone de la logística necesaria que incluye el instrumental específico, los insumos y los repuestos requeridos para la ejecución de los trabajos.
+
+Para el planeamiento, preparación y ejecución del programa de mantenimiento, los elementos seleccionados deben elevar al Centro de Mantenimiento un informe con el detalle de todos los efectos electrónicos, en el cual se deben especificar los siguientes datos:
+
+\begin{itemize}
+    \item \textbf{Nombre Nacional de Efecto (NNE):} según la catalogación interna del EA. Ejemplo: \textit{Radio HF Yaesu 470}.
+    \item \textbf{Número de Identificación (NI):} número único asignado a cada equipo, conforme a la catalogación interna. Ejemplo: \textit{C421}.
+    \item \textbf{Cantidad de efectos fuera de servicio.}
+    \item \textbf{Fallas que presenta cada equipo.}
+\end{itemize}
+
+A partir de los datos mencionados, y utilizando tanto estadísticas como la experiencia de los técnicos especialistas en cada rubro, se elabora una lista de repuestos e insumos necesarios para su adquisición. Dado que el presupuesto destinado a tal fin constituye un recurso exiguo, esta etapa resulta crítica para optimizar la planificación de las compras.
+
+Una vez aprobados por las distintas instancias administrativas, los requerimientos, son sometidos a un proceso de licitación abierta a proveedores del Estado. El proceso de compra antes descrito requiere entre cuatro y seis meses para adquisiciones locales, y de seis a doce meses para compras en el exterior. Dichos plazos son gestionados por otros organismos del EA, fuera del control directo del Centro de Mantenimiento.
+
+\subsection{Estado del arte}
+
+Las estrategias de \textit{Condition-Based Maintenance (CBM/CBM+)} combinan mantenimiento predictivo, inteligencia artificial y gestión de repuestos, lo que logra:
+\begin{itemize}
+	\item Mayor disponibilidad operativa.
+    \item Reducción significativa de costos.
+\end{itemize}
+Estudios recientes como \textit{B. Zhang, et al. (2025) — Maintenance Decision-Making Using Intelligent Machine Learning for Spare Parts, S. Tapia, et al. (2024) — Mantenimiento predictivo basado en machine learning: una revisión sistemática} y \textit{M. İfraz, et al. (2025) — A Systematic Literature Review on Spare Parts Inventory Management} confirman la madurez de los modelos de \textit{Machine Learning} para anticipar fallas y vincular predicciones con planes de inventario.
+
+\subsubsection*{Referentes Internacionales}
+\begin{itemize}
+    \item \textbf{Defensa}: El Departamento de Defensa de EE.UU. impulsa CBM+ como marco doctrinario; la OTAN promueve su adopción en sistemas complejos.
+    \item \textbf{Industria}: Reportes técnicos y consultoras (KPMG) destacan la integración de algoritmos predictivos con gestión de inventarios para priorizar piezas críticas y reducir tiempos de reposición.
+\end{itemize}
+
+\subsubsection*{Avances Regionales}
+\begin{itemize}
+    \item \textbf{Brasil}: Implementa mantenimiento predictivo en procesos oficiales del Exército Brasileiro.
+    \item \textbf{Chile}: Investiga IA aplicada a predicción de fallas, con desafíos en calidad de datos.
+    \item \textbf{Argentina}: Industria 4.0 impulsa proyectos en entornos operativos, como los centros de inteligencia de YPF, demostrando la viabilidad de analítica avanzada.
+\end{itemize}
+
+\subsubsection*{Oportunidad para el Ejército Argentino}
+La convergencia entre analítica predictiva, CBM y gestión automatizada de repuestos permite:
+\begin{itemize}
+    \item Anticipar necesidades logísticas.
+    \item Optimizar licitaciones.
+    \item Reducir tiempos de inactividad.
+\end{itemize}
+Este marco sustenta el desarrollo del presente proyecto para el mantenimiento del equipamiento electrónico del Ejército Argentino.
+
+
+
+\section{Proyecto}
+
+El presente trabajo se desarrollará en el B Mant Com 601 dedicado al mantenimiento y reparación de una amplia gama de equipos electrónicos, sistemas de comunicaciones (militarizados y no militarizados), centrales telefónicas, equipos informáticos, simuladores y tecnología satelital, entre otros. 
+
+La diversidad de dispositivos y la falta de acceso físico previo al material a reparar dificultan la identificación precisa de fallas y la determinación de los repuestos necesarios. Esta situación obliga a realizar solicitudes de compra de insumos con hasta seis meses de antelación, basadas en estimaciones estadísticas y en la experiencia de los técnicos especialistas, lo que genera procesos de adquisición ineficientes.
+
+En respuesta a esta problemática, el desarrollo propuesto en este proyecto busca optimizar la gestión de compra de repuestos e insumos, mejorando la precisión en las estimaciones de los requerimientos de acuerdo con las fallas que presenta cada equipo electrónico, reduciendo los márgenes de error y optimizando los tiempos de respuesta de los requerimientos.
+
+\begin{enumerate}
+    \item El \textit{dataset} será elaborado a partir de la base de datos del Ejército Argentino, con el apoyo de los especialistas técnicos electrónicos que registran sistemáticamente las actividades de mantenimiento y reparación.
+    \item Además, este \textit{dataset} podrá ser enriquecido con la información proveniente de los programas de mantenimiento posteriores, mejorando de esta manera el entrenamiento de los modelos de inteligencia artificial utilizados en el sistema.
+\end{enumerate}
+
+\section{2. Identificación y análisis de los interesados}
+\label{sec:interesados}
+
+%\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+%\textbf{Nota importante:} borrar esto y todas las consignas en color rojo antes de entregar este documento). Esto se hace eliminando el par de comandos que forman el bloque consigna, \verb!\begin{consigna}{red}! y \verb!\end{consigna}{red}! del código. 
+ 
+%Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos. Si se considera que una persona cumple dos o más roles, entonces \textbf{solo dejarla en el rol más importante}. 
+
+%Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente. Si una persona es el Responsable, \textbf{no debe ser colocado también como miembro del equipo}.
+
+
+\begin{table}[ht]
+%\caption{Identificación de los interesados}
+%\label{tab:interesados}
+\begin{tabularx}{\linewidth}{@{}|l|X|X|l|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
+Auspiciante   &   --                & Ejército Argentino    	&    --    	\\ \hline
+Cliente       & \clientename      &\empclientename	& Jefe       	\\ \hline
+%Impulsor      &      --             &    --          	&   --     	\\ \hline
+Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
+%Colaboradores &       --            &      --        	&    --    	\\ \hline
+Orientador    & \supname	      & \pertesupname 	& Director del Trabajo Final \\ \hline
+Equipo        & Especialistas del B Mant Com 601 
+				         &       --       	&    --    	\\ \hline
+%Opositores    &      --             &       --       	&    --    	\\ \hline
+Usuario final &    -- &        B Mant Com 601      	&       --\\ \hline
+\end{tabularx}
+\end{table}
+
+%El Director suele ser uno de los orientadores.
+
+%No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
+
+%No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
+
+%Es deseable listar a continuación las principales características de cada interesado.
+ 
+%Por ejemplo:
+\begin{itemize}
+	\item Cliente: Jefe del centro de mantenimiento y el responsable antes las instancias superiores de tener una dependencia eficiente en los procesos que buscamos mejorar.
+	\item Orientador: es experto en la temática y va a ayudar con la definición de los requerimientos y el desarrollo de la IA.
+	\item Auspiciante: en su interés de mejorar el proceso compra de los repuestos e insumos a fin de tener un mantenimiento más eficiente. Ellos costean tanto mi especialización como los gastos del proyecto.  
+	\item Equipo: son 13 técnicos  electrónicos que se dedican a la reparación de los equipos del EA y están bajo mi cargo.
+\end{itemize}
+
+%\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+
+
+\section{3. Propósito del proyecto}
+\label{sec:proposito}
+
+Mejorar la deficiencia en la \textbf{adquisición de insumos y repuestos} para la reparación de equipos electrónicos del \textbf{Ejército Argentino}.
+
+%\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+
+%¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
+
+%Se recomienda que sea solo un párrafo que continúe con la idea de la frase ``el propósito de este proyecto es...'' (omitir la frase, ya que está en el título de la sección).
+%\end{consigna}
+
+\section{4. Alcance del proyecto}
+\label{sec:alcance}
+
+%\begin{consigna}{red}
+%¿Qué se incluye y que no se incluye en este proyecto?
+
+%Se refiere al trabajo que se va a hacer para entregar el producto o resultado especificado. 
+
+%Explicitar todo lo quede comprendido dentro del alcance del proyecto. Por ejemplo:
+
+El proyecto incluye:
+\begin{itemize}
+	\item API ChatBot que le permita al usuario hacer consultas y cargar la solicitud de mantenimiento.
+	\item Sistema de procesamiento de datos.
+		\begin{itemize}
+		\item Lista de repuestos separados por tipo de efecto.
+		\item Lista de insumos.
+		\item Listado de efectos a reparar por usuarios o efectos (NNE) según lo solicitado por el usuario.
+		\end{itemize}
+	%\item ...
+	
+\end{itemize}
+El proyecto no incluye mejoras propuestas como:
+\begin{itemize}
+    \item Guardar especificaciones técnicas relevantes de componentes y equipos electrónicos.
+    \item Realizar el control de stock de insumos y repuestos.
+    \item Mantener un historial de reparaciones de los efectos, agrupados por categorías (equipos de comunicaciones RF, satelitales, informática, guerra electrónica), por Nombre Nacional de Efecto (NNE) y por Número de Identificación (NI).
+    \item Módulo de generación de informes estadísticos.
+	\item Módulo de control de detección por imágenes de entrada y salida de efectos electrónicos y accesorios.
+	\item Módulo de control de detección por imágenes de entrada y salida de repuestos.
+	\item Alerta generada por equipos que se encuentran próximos a alcanzar el límite del período estipulado para su reparación.
+\end{itemize}
+
+
+%Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
+
+%\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+
+
+\section{5. Supuestos del proyecto}
+\label{sec:supuestos}
+
+%\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+Para el desarrollo del presente proyecto se supone que:
+
+\begin{itemize}
+    \item El B Mant Com 601 pone a disposición todos los especialistas necesarios para la ejecución de las tareas técnicas y de validación.
+    \item Se cuenta con acceso a los sistemas de registro de efectos electrónicos del EA, que permiten identificar los equipos asignados a cada usuario.
+    \item Se dispone del entorno \textit{Cloud} del EA para el montaje, prueba y operación de la API desarrollada.
+    \item Que el modelo de clasificación es el correcto.
+    \item Que el tiempo estipulado es el correcto.
+    \item Que el EA mantenga los recursos económicos necesarios para llevar a cabo el proyecto.
+    \item Que los interesados no modifiquen el entregable propuesto.
+\end{itemize}
+
+%Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
+
+%\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+
+\section{6. Product Backlog}
+\label{sec:backlog}
+
+%El Product Backlog debe organizarse en cuatro \textbf{\textit{\'{e}picas}} fundamentales del proyecto. Cada \'{e}pica debe contener al menos dos historias de usuario que describan funcionalidades clave.
+
+%El Product Backlog debe permitir interpretar cómo será el proyecto y su funcionalidad. Se deben indicar claramente las prioridades entre las historias de usuario y si hay alguna opcional.
+
+%Las historias de usuario deben ser breves, claras y medibles, expresando el rol, la necesidad y el propósito de cada funcionalidad. También deben tener una prioridad definida para facilitar la planificación de los sprints.
+
+Cada historia de usuario debe incluir una ponderación en \textit{Story Points}, un número entero que representa el tama\~no relativo de la historia. El criterio para calcular los Story Points debe indicarse explícitamente.
+
+%Las historias deben seguir el formato: ``\textit{Como [rol], quiero [tal cosa] para [tal otra cosa]}''.
+
+%Las \'{e}picas deben estructurarse de la siguiente forma:
+
+\begin{itemize}
+  \item \textbf{Épica 1 - Optimizar el proceso de carga de datos.}
+    \begin{itemize}
+      \item HU1 - ``\textit{Como jefe de las líneas de mantenimiento, quiero que la carga de datos de las solicitudes incluya al menos 5 campos obligatorios (identificación del usuario, descripción de equipo, ubicación, Tipo de falla, pruebas realizadas ) para que el especialista comprenda el problema con un 90\% de precisión en la primera revisión}''
+      
+		\begin{itemize}
+			\item Dificultad: 8
+			\item Complejidad: 10
+			\item Incertidumbre: 10
+			\item Suma: 28 $\rightarrow$ Story Points: 34
+		\end{itemize}     
+      \item HU2 - "\textit{Como usuario, quiero contar con una guía específica y sencilla para solicitar el mantenimiento de equipos electrónicos y reducior así errores en la carga}"
+      	\begin{itemize}
+			\item Dificultad: 3
+			\item Complejidad: 5
+			\item Incertidumbre: 2
+			\item Suma: 10 $\rightarrow$ Story Points: 13
+		\end{itemize}     
+    \end{itemize}
+    
+  \item \textbf{Épica 2 - Optimizar el proceso de consulta y designación de tareas.}
+    \begin{itemize}
+      \item HU3 - Como jefe de las líneas de mantenimiento, quiero que los especialistas solo atiendan consultas sobre problemas no estandarizados para optimizar su tiempo.
+      	\begin{itemize}
+			\item Dificultad: 6
+			\item Complejidad: 8
+			\item Incertidumbre: 6
+			\item Suma: 20 $\rightarrow$ Story Points: 21
+		\end{itemize}     
+      \item HU4 - Como usuario, quiero recibir respuestas rápidas para resolver problemas sin demoras.
+      	\begin{itemize}
+			\item Dificultad: 5
+			\item Complejidad: 5
+			\item Incertidumbre: 6
+			\item Suma: 16 $\rightarrow$ Story Points: 21
+		\end{itemize}     
+    \end{itemize}
+    
+  \item \textbf{Épica 3 - Optimizar el proceso de compras.}
+    \begin{itemize}
+      \item HU5 - Como jefe de las líneas de mantenimiento, quiero disponer de un sistema asistido que procese necesidades y genere solicitudes de compra de repuestos e insumos de forma eficiente.
+      	\begin{itemize}
+			\item Dificultad: 5
+			\item Complejidad: 3
+			\item Incertidumbre: 8
+			\item Suma: 16 $\rightarrow$ Story Points: 21
+		\end{itemize}        
+      \item HU6 - Como jefe de las líneas de mantenimiento, quiero recibir reportes del estado de los repuestos e insumos con alertas cuando el stock sea insuficiente.
+		\begin{itemize}
+			\item Dificultad: 4
+			\item Complejidad: 4
+			\item Incertidumbre: 8
+			\item Suma: 16 $\rightarrow$ Story Points: 21
+		\end{itemize}           
+    \end{itemize}
+
+  \item \textbf{Épica 4 - Control del estado de mantenimiento de los equipos electrónicos.}
+    \begin{itemize}
+      \item HU7 - Como jefe de la línea de mantenimiento, quiero controlar la eficiencia del tiempo empleado en reparaciones y recibir alertas cuando se superen los tiempos estimados.
+      	\begin{itemize}
+			\item Dificultad: 3
+			\item Complejidad: 2
+			\item Incertidumbre: 2
+			\item Suma: 7 $\rightarrow$ Story Points: 8
+		\end{itemize}     
+      \item HU8 - Como jefe de la línea de mantenimiento, quiero contar con informes periódicos (mensuales, semestrales y anuales) sobre las tareas realizadas.
+      	\begin{itemize}
+			\item Dificultad: 3
+			\item Complejidad: 2
+			\item Incertidumbre: 2
+			\item Suma: 7 $\rightarrow$ Story Points: 8
+		\end{itemize}     
+    \end{itemize}
+\end{itemize}
+
+%\textbf{Reglas para definir historias de usuario:}
+%\begin{itemize}
+ % \item Ser concisas y claras.
+ % \item Expresarlas en términos cuantificables y medibles.
+ % \item No dejar margen para interpretaciones ambiguas.
+ % \item Indicar claramente su prioridad y si son opcionales.
+ % \item Considerar regulaciones y normas vigentes.
+%\end{itemize}
+
+\section{7. Criterios de aceptación de historias de usuario}
+\label{sec:criteriosAceptacion}
+
+%Los criterios de aceptación deben establecerse para cada historia de usuario, asegurando que se cumplan las condiciones necesarias para que la funcionalidad sea validada correctamente.
+
+%Cada historia debe tener criterios medibles, específicos y verificables. Deben permitir validar que se cumple con las necesidades del usuario.
+
+%Se estructuran de forma análoga a las \'{e}picas del backlog:
+
+\begin{itemize}
+  \item \textbf{Épica 1}
+    \begin{itemize}
+      \item \textbf{Criterios de aceptación HU1}
+        \begin{itemize}
+          \item Permitir que el usuario inicie sesión, cargue sus datos, seleccione uno o varios equipos para mantenimiento y especifique el tipo de falla.
+          \item Incluir un chatbot que guíe al usuario para describir la falla en lenguaje natural.
+          \item Mostrar un resumen de la información cargada y solicitar confirmación antes de enviar la solicitud.
+        \end{itemize}
+      \item \textbf{Criterios de aceptación HU2}
+        \begin{itemize}
+          \item Ofrecer un menú de opciones para seleccionar el equipo electrónico y la problemática detectada.
+          \item Incorporar un chatbot para resolver dudas en cada paso del proceso de carga.
+          \item Permitir que el usuario visualice, modifique y confirme la solicitud, generando un número de orden para seguimiento del estado de mantenimiento.
+        \end{itemize}
+    \end{itemize}
+  \item \textbf{\'{E}pica 2}
+    \begin{itemize}
+      \item Criterios de aceptación HU3
+        \begin{itemize}
+          \item El chatbot debe responder automáticamente a problemas estandarizados. Si el problema no está en la base, debe generar un ticket y asignarlo a un especialista.
+          \item Mostrar en la interfaz un estado claro: “Resuelto por chatbot” o “Derivado a especialista”.
+          \item Permitir guardar la solución del especialista en la base de datos.
+        \end{itemize}
+      \item Criterios de aceptación HU4
+        \begin{itemize}
+          \item El chatbot debe responder automáticamente a problemas estandarizados en menos de cinco segundos, preguntando si el problema fue resuelto y si tiene otra consulta.          
+          \item Mostrar la respuesta del chatbot en formato claro, con pasos numerados y opción para “Solicitar asistencia a un especialista”.
+          \item El chatbot debe soportar al menos diez consultas simultáneas y guardar el resultado de la consultas para métrica de la eficiencia del proceso.
+        \end{itemize}
+    \end{itemize}  
+  \item \textbf{\'{E}pica 3}
+    \begin{itemize}
+      \item Criterios de aceptación HU5
+        \begin{itemize}
+          \item Permitir a los especialistas registrar en la base de datos los repuestos e insumos utilizados para el mantenimiento y reparación de los equipos electrónicos.
+          \item Generar una lista de insumos y repuestos necesarios para el mantenimiento y/o reparación de los equipos electrónicos, de acuerdo con las solicitudes de los usuarios.
+          \item Permitir al responsable visualizar, modificar y confirmar la lista de repuestos e insumos, generando un archivo en formato XLSX para su descarga.
+        \end{itemize}
+      \item Criterios de aceptación HU6
+        \begin{itemize}
+          \item Permitir al especialista solicitar al depósito los repuestos necesarios para realizar el mantenimiento o reparación de los equipos electrónicos.
+          \item Permitir al encargado de insumos y repuestos aceptar o rechazar la solicitud, o generar un pedido en caso de no contar con stock.
+          \item Mostrar estadísticas de uso de repuestos e insumos, incluyendo alertas cuando el stock sea insuficiente.
+        \end{itemize}
+    \end{itemize}
+  \item \textbf{\'{E}pica 4}
+    \begin{itemize}
+      \item Criterios de aceptación HU7
+      	\begin{itemize}
+      	  \item El sistema debe calcular automáticamente el tiempo total empleado en cada reparación y compararlo con el tiempo estimado definido para el equipo.
+      	  \item Mostrar en el panel de control un indicador (verde, amarillo, rojo) que refleje el estado del tiempo respecto al estimado.
+      	  \item Generar una alerta automática cuando el tiempo real supere el estimado en más del 10\%.
+      	\end{itemize}
+      \item Criterios de aceptación HU8
+        \begin{itemize}
+          \item El sistema debe permitir generar informes en formato PDF y Excel con el detalle de tareas realizadas en los períodos seleccionados (mensual, semestral, anual).
+          \item Los informes deben incluir gráficos de barras y tablas con métricas clave (tiempo promedio de reparación, cantidad de equipos atendidos, alertas generadas).
+          \item El sistema debe almacenar los informes generados en un repositorio seguro y permitir su descarga.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+%\textbf{Reglas para definir criterios de aceptación:}
+%\begin{itemize}
+  %\item Medibles y verificables.
+  %\item Especificar cuándo una historia se considera completada.
+  %\item Incluir condiciones específicas.
+  %\item No ambiguos.
+  %\item Probables de testear funcional o técnicamente.
+  %\item Mínimo 3 criterios por HU.
+%\end{itemize}
+
+\section{8. Fases de CRISP-DM}
+
+\begin{enumerate}
+  \item \textbf{Comprensión del negocio:} 
+  ½objetivo, valor agregado de IA, métricas de éxito.
+	\begin{itemize}
+		\item Objetivo: Reducir tiempos de mantenimiento.
+		\item Valor agregado: Optimización logística.
+		\item Métricas: \% reducción de tiempo, ahorro en costo.
+	\end{itemize}	  
+  \item \textbf{Comprensión de los datos:} %tipo, origen, cantidad, calidad.
+  	\begin{itemize}
+		\item Tipo: Datos históricos de fallas.
+		\item Origen: Sistema de mantenimiento del B Mant Com 601.
+		\item Cantidad: Suficiente.
+		\item Calidad: Habrá datos faltante de acuerdo a cada equipo electrónico.
+	\end{itemize}
+  \item \textbf{Preparación de los datos:} %características clave, transformaciones necesarias.
+  	\begin{itemize}
+		\item Eliminar duplicados.
+		\item Imputar valores faltantes.
+		\item Crear variables como “tiempo entre fallas”.
+		\item Normalizar.
+	\end{itemize}
+  \item \textbf{Modelado:} %tipo de problema, algoritmos posibles.
+  	\begin{itemize}
+		\item Clasificación de intención (ML o Deep Learning).
+		\item Motor de búsqueda semántico para recuperar respuestas.
+		\item Modelo de procesamiento de lenguaje natural.
+	\end{itemize}
+  \item \textbf{Evaluación del modelo:} %métricas de rendimiento.
+  	\begin{itemize}
+		\item Métricas: Accuracy, F1-score, ROC-AUC.
+	\end{itemize}
+  \item \textbf{Despliegue del modelo (opcional):} %tipo de despliegue y herramientas.
+  	\begin{itemize}
+		\item API en un servidor interno.
+	\end{itemize}
+\end{enumerate}
+
+\section{9. Desglose del trabajo en tareas}
+\label{sec:wbs}
+
+%A partir de cada Historia de Usuario (HU) definida en la sección 6, descomponer el trabajo en tareas técnicas concretas, medibles y acotadas en el tiempo.
+
+%\begin{itemize}
+%\item Seleccionar entre 2 y 3 tareas por cada historia de usuario.
+%\item Cada tarea debe estar claramente formulada, ser técnica, accionable y con una estimación horaria entre 2 y 8 horas.
+%\item Evitar tareas genéricas (como ''desarrollar funcionalidad´´) o demasiado amplias.
+%\item Si una tarea supera las 8 horas, debe dividirse en subtareas.
+%\item Indicar la prioridad relativa de cada tarea (Alta, Media o Baja).
+%\end{itemize}
+
+\begin{table}[htpb]
+\centering
+\begin{tabularx}{\linewidth}{@{}|X|X|c|c|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0}
+\textbf{Historia de usuario} & \textbf{Tarea técnica} & \textbf{Estimación} & \textbf{Prioridad} \\ \hline
+HU1 & Tarea 1: Diseñar formulario dinámico de carga de solicitudes & 8 h & Alta \\ \hline
+HU1 & Tarea 2: Implementar validaciones automáticas de datos & 8 h & Alta \\ \hline
+HU1 & Tarea 3: Integrar vista de revisión previa al envío & 7 h & Media \\ \hline
+HU1 & Tarea 4: Registrar logs de errores y validaciones fallidas con alerta al usuario & 5 h & Media \\ \hline
+HU2 & Tarea 1: Diseñar guía interactiva paso a paso (wizard) & 5 h & Alta \\ \hline
+\end{tabularx}
+\end{table}
+
+
+\begin{table}[htpb]
+\centering
+\begin{tabularx}{\linewidth}{@{}|X|X|c|c|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0}
+\textbf{Historia de usuario} & \textbf{Tarea técnica} & \textbf{Estimación} & \textbf{Prioridad} \\ \hline
+HU2 & Tarea 2: Implementar tutorial contextual (ayuda emergente) & 4 h & Media \\ \hline
+HU2 & Tarea 3: Crear documentación o video corto de referencia & 3 h & Baja \\ \hline
+HU3 &  Tarea 1: Diseñar motor de categorización de solicitudes & 8 h & Alta \\ \hline
+HU3 & Tarea 2: Configurar panel de consultas filtradas para especialistas & 8 h & Alta \\ \hline
+HU3 & Tarea 3: Probar y ajustar criterios de clasificación & 4 h & Media \\ \hline
+HU4 & Tarea 1: Desarrollar módulo de respuestas automáticas (FAQ / plantillas) & 7 h & Alta \\ \hline
+HU4 & Tarea 2: Integrar notificaciones instantáneas (email / app) & 6 h & Alta \\ \hline
+HU4 & Tarea 3: Monitorear tiempos de respuesta y generar métricas & 6 h & Media \\ \hline
+HU5 & Tarea 1: Diseñar flujo automatizado para generación de pedidos & 8 h & Alta \\ \hline
+HU5 & Tarea 2: Integrar con base de datos de inventario & 7 h & Alta \\ \hline
+HU5 & Tarea 3: Validar casos de excepción (errores de stock o duplicados) & 4 h & Media \\ \hline
+HU6 & Tarea 1: Desarrollar módulo de monitoreo de stock & 6 h & Alta \\ \hline
+HU6 & Tarea 2: Configurar sistema de alertas automáticas & 8 h & Alta \\ \hline
+HU6 & Tarea 3: Desarrollar módulo para solicitud de repuesto por parte del especialista al depósito & 8 h & Alta \\ \hline
+HU7 & Tarea 1: Implementar registro de tiempos por tarea & 3 h & Baja \\ \hline
+HU7 & Tarea 2: Configurar alertas por desviación de tiempos & 2 h & Baja \\ \hline
+HU7 & Tarea 3: Diseñar dashboard de eficiencia por equipo o técnico & 5 h & Media \\ \hline
+HU8 & Tarea 1: Diseñar modelo de reporte automatizado (mensual/semestral/anual) & 4 h & Media \\ \hline
+HU8 & Tarea 2: Implementar exportación de reportes (PDF / Excel) & 3 h & Media \\ \hline
+HU8 & Tarea 3: Programar envío automático de reportes por correo & 2 h & Baja \\ \hline
+\end{tabularx}
+\caption{Desglose de tareas técnicas por historia de usuario.}
+\end{table}
+
+%\textbf{Criterios para estimar tiempos:}
+%\begin{itemize}
+  %\item Considerar la complejidad técnica, el nivel de incertidumbre y la experiencia previa.
+  %\item Evitar subestimar el esfuerzo: estimar el tiempo realista que llevaría implementar, testear y documentar cada tarea.
+  %\item Basar la estimación en la experiencia propia o en referencias de tareas similares.
+%\end{itemize}
+
+%\textbf{Sobre la prioridad:}
+%\begin{itemize}
+  %\item Asignar una prioridad relativa (Alta, Media o Baja) según la relevancia funcional de la tarea y su impacto en los entregables.
+  %\item Priorizar tareas que estén vinculadas a criterios de aceptación de las HU o que sean necesarias para desbloquear otras.
+  %\item Incluir tareas opcionales solo si están bien justificadas.
+%\end{itemize}
+
+%\textbf{Recomendaciones generales:}
+%\begin{itemize}
+  %\item -Enfocarse en tareas que surgen directamente de las HU planteadas.
+  %\item No es necesario cubrir las 600 horas del proyecto en esta sección: el foco está en el desglose de funcionalidades clave.
+  %\item Este trabajo será la base para organizar algunos de los sprints y elaborar el cronograma del proyecto, por lo que debe ser claro y realista.
+%\end{itemize}
+
+\section{10. Planificación de Sprints}
+
+%Organizar las tareas técnicas del proyecto en sprints de trabajo que permitan distribuir de forma equilibrada la carga horaria total, estimada en 600 horas.
+
+%\textbf{Consigna:}
+%\begin{itemize}
+  %\item Completar una tabla que relacione sprints con HU y tareas técnicas correspondientes.
+  %\item Incluir estimación en horas para cada tarea.
+  %\item Indicar responsable y porcentaje de avance estimado o completado.
+  %\item Contemplar también tareas de planificación, documentación, redacción de memoria y preparación de defensa.
+%\end{itemize}
+
+%\textbf{Conceptos clave:}
+%\begin{itemize}
+  %\item Una \'{e}pica es una unidad funcional amplia; una historia de usuario es una funcionalidad concreta; un sprint es una unidad de tiempo donde se ejecutan tareas.
+  %\item Las tareas son el nivel más desagregado: permiten estimar tiempos, asignar responsables y monitorear progreso.
+%\end{itemize}
+
+%\textbf{Duración sugerida:}
+%\begin{itemize}
+  %\item Para un proyecto de 600 h, se recomienda planificar entre 10 y 12 sprints de aproximadamente 2 semanas cada uno.
+  %\item Asignar entre 45 y 50 horas efectivas por sprint a tareas técnicas.
+  %\item Reservar 100 a 120 h para actividades no técnicas (planificación, escritura, reuniones, defensa).
+%\end{itemize}
+
+%\textbf{Importante:}
+%\begin{itemize}
+  %\item En proyectos individuales, el responsable suele ser el propio autor.
+  %\item Aun así, desagregar tareas facilita el seguimiento y mejora continua.
+%\end{itemize}
+
+%\textbf{Conversión opcional de Story Points a horas:}
+%\begin{itemize}
+  %\item 1 SP \(\approx\) 2 h como referencia flexible.
+  %\item Tener en cuenta aproximaciones tipo Fibonacci.
+%\end{itemize}
+
+\begin{table}[htpb]
+\centering
+\begin{tabularx}{\linewidth}{@{}|l|l|X|c|l|c|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0}
+Sprint & HU o fase & Tarea & Horas / SP & Responsable & \% Completado \\ \hline
+Sprint 0 & Planificación & Definir alcance y cronograma & 15 h & Alumno & 100\% \\ \hline
+Sprint 0 & Planificación & Reunión con el tutor/cliente & 10 h & Alumno & 50\% \\ \hline
+Sprint 0 & Planificación & Ajuste de los entregables & 10 h & Alumno & 25\% \\ \hline
+Sprint 1 & HU1 & Tarea 1 HU1 & 8 h / 5 SP & Alumno & 0\% \\ \hline
+Sprint 1 & HU1 & Tarea 2 HU1 & 8 h / 5 SP & Alumno & 0\% \\ \hline
+Sprint 1 & HU1 & Tarea 3 HU1 & 7 h / 5 SP & Alumno & 0\% \\ \hline
+Sprint 1 & HU1 & Tarea 4 HU1 & 5 h / 3 SP & Alumno & 0\% \\ \hline
+Sprint 1 & HU1 & Prueba e integración del HU1 & 24 h / 15 SP & Alumno & 0\% \\ \hline
+Sprint 1 & HU1 & Reuniones de seguimiento:  Validación con el cliente, revisiones de sprint, demostraciones y feedback del HU1 & 4 h / 3 SP & Alumno & 0\% \\ \hline
+Sprint 1 & HU1 & Revisión de código, optimización y refactorización del HU1 & 8 h / 5 SP & Alumno & 0\% \\ \hline
+Sprint 1 & HU1 & Documentación técnica: Documentar, manuales de uso,  Control de versiones, mantenimiento del repositorio (Git) del HU1 & 16 h / 21 SP & Alumno & 0\% \\ \hline
+Sprint 2 & HU2 & Tarea 1 HU2 & 5 h / 3 SP & Alumno & 0\% \\ \hline
+Sprint 2 & HU2 & Tarea 2 HU2 & 4 h / 3 SP & Alumno & 0\% \\ \hline
+Sprint 2 & HU2 & Tarea 3 HU2 & 3 h / 2 SP & Alumno & 0\% \\ \hline
+Sprint 2 & HU2 & Prueba e integración del HU2 & 24 h / 15 SP & Alumno & 0\% \\ \hline
+Sprint 2 & HU2 & Reuniones de seguimiento:  Validación con el cliente, revisiones de sprint, demostraciones y feedback del HU2 & 4 h / 3 SP & Alumno & 0\% \\ \hline
+Sprint 2 & HU2 & Revisión de código, optimización y refactorización del HU2 & 8 h / 5 SP & Alumno & 0\% \\ \hline
+Sprint 2 & HU2 & Documentación técnica: Documentar, manuales de uso,  Control de versiones, mantenimiento del repositorio (Git) del HU2 & 16 h / 21 SP & Alumno & 0\% \\ \hline
+Sprint 3 & HU3 & Tarea 1 HU3 & 8 h / 5 SP & Alumno & 0\% \\ \hline
+Sprint 3 & HU3 & Tarea 2 HU3 & 8 h / 5 SP & Alumno & 0\% \\ \hline
+Sprint 3 & HU3 & Tarea 3 HU3 & 4 h / 3 SP & Alumno & 0\% \\ \hline
+Sprint 3 & HU3 & Prueba e integración del HU3 & 24 h / 21 SP & Alumno & 0\% \\ \hline
+Sprint 3 & HU3 & Reuniones de seguimiento: Validación con el cliente, revisiones de sprint, demostraciones y feedback del HU3 & 4 h / 3 SP & Alumno & 0\% \\ \hline
+Sprint 3 & HU3 & Revisión de código, optimización y refactorización del HU3 & 8 h / 5 SP & Alumno & 0\% \\ \hline
+Sprint 3 & HU3 & Documentación técnica: Documentar, manuales de uso,  Control de versiones, mantenimiento del repositorio (Git) del HU3 & 16 h / 21 SP & Alumno & 0\% \\ \hline
+Sprint 4 & HU4 & Tarea 1 HU4 & 7 h / 5 SP & Alumno & 0\% \\ \hline
+Sprint 4 & HU4 & Tarea 2 HU4 & 6 h / 5 SP & Alumno & 0\% \\ \hline
+Sprint 4 & HU4 & Tarea 3 HU4 & 6 h / 5 SP & Alumno & 0\% \\ \hline
+Sprint 4 & HU4 & Prueba e integración del HU4 & 24 h / 21 SP & Alumno & 0\% \\ \hline
+Sprint 4 & HU4 & Reuniones de seguimiento:  Validación con el cliente, revisiones de sprint, demostraciones y feedback del HU4 & 4 h / 3 SP & Alumno & 0\% \\ \hline
+Sprint 4 & HU4 & Revisión de código, optimización y refactorización del HU4 & 8 h / 5 SP & Alumno & 0\% \\ \hline
+Sprint 4 & HU4 & Documentación técnica: Documentar, manuales de uso,  Control de versiones, mantenimiento del repositorio (Git) del HU4 & 16 h / 21 SP & Alumno & 0\% \\ \hline
+Sprint 5 & HU5 & Tarea 1 HU5 & 8 h / 5 SP & Alumno & 0\% \\ \hline
+Sprint 5 & HU5 & Tarea 2 HU5 & 7 h / 5 SP & Alumno & 0\% \\ \hline
+Sprint 5 & HU5 & Tarea 3 HU5 & 4 h / 3 SP & Alumno & 0\% \\ \hline
+Sprint 5 & HU5 & Prueba e integración del HU5 & 24 h / 21 SP & Alumno & 0\% \\ \hline
+Sprint 5 & HU5 & Reuniones de seguimiento:  Validación con el cliente, revisiones de sprint, demostraciones y feedback del HU5 & 4 h / 3 SP & Alumno & 0\% \\ \hline
+Sprint 5 & HU5 & Revisión de código, optimización y refactorización del HU5 & 8 h / 5 SP & Alumno & 0\% \\ \hline
+Sprint 5 & HU5 & Documentación técnica: Documentar, manuales de uso,  Control de versiones, mantenimiento del repositorio (Git) del HU5 & 16 h / 21 SP & Alumno & 0\% \\ \hline
+Sprint 6 & HU6 & Tarea 1 HU6 & 6 h / 5 SP & Alumno & 0\% \\ \hline
+Sprint 6 & HU6 & Tarea 2 HU6 & 8 h / 5 SP & Alumno & 0\% \\ \hline
+Sprint 6 & HU6 & Tarea 3 HU6 & 8 h / 5 SP & Alumno & 0\% \\ \hline
+Sprint 6 & HU6 & Prueba e integración del HU6 & 24 h / 21 SP & Alumno & 0\% \\ \hline
+Sprint 6 & HU6 & Reuniones de seguimiento:  Validación con el cliente, revisiones de sprint, demostraciones y feedback del HU6 & 4 h / 3 SP & Alumno & 0\% \\ \hline
+Sprint 6 & HU6 & Revisión de código, optimización y refactorización del HU6 & 8 h / 5 SP & Alumno & 0\% \\ \hline
+Sprint 6 & HU6 & Documentación técnica: Documentar, manuales de uso,  Control de versiones, mantenimiento del repositorio (Git) del HU6 & 16 h / 21 SP & Alumno & 0\% \\ \hline
+Sprint 7 & HU7 & Tarea 1 HU7 & 3 h / 2 SP & Alumno & 0\% \\ \hline
+Sprint 7 & HU7 & Tarea 2 HU7 & 2 h / 1 SP & Alumno & 0\% \\ \hline
+Sprint 7 & HU7 & Tarea 3 HU7 & 5 h / 3 SP & Alumno & 0\% \\ \hline
+Sprint 7 & HU7 & Prueba e integración del HU7 & 24 h / 21 SP & Alumno & 0\% \\ \hline
+Sprint 7 & HU7 & Reuniones de seguimiento:  Validación con el cliente, revisiones de sprint, demostraciones y feedback del HU7 & 4 h / 3 SP & Alumno & 0\% \\ \hline
+Sprint 7 & HU7 & Revisión de código, optimización y refactorización del HU7 & 8 h / 5 SP & Alumno & 0\% \\ \hline
+Sprint 7 & HU7 & Documentación técnica: Documentar, manuales de uso,  Control de versiones, mantenimiento del repositorio (Git) del HU7 & 16 h / 21 SP & Alumno & 0\% \\ \hline
+Sprint 8 & HU8 & Tarea 1 HU8 & 4 h / 3 SP & Alumno & 0\% \\ \hline
+Sprint 8 & HU8 & Tarea 2 HU8 & 3 h / 2 SP & Alumno & 0\% \\ \hline
+Sprint 8 & HU8 & Tarea 3 HU8 & 2 h / 1 SP & Alumno & 0\% \\ \hline
+Sprint 8 & HU8 & Prueba e integración del HU8 & 24 h / 21 SP & Alumno & 0\% \\ \hline
+Sprint 8 & HU8 & Reuniones de seguimiento:  Validación con el cliente, revisiones de sprint, demostraciones y feedback del HU8 & 4 h / 3 SP & Alumno & 0\% \\ \hline
+Sprint 8 & HU8 & Revisión de código, optimización y refactorización del HU8 & 8 h / 21 SP & Alumno & 0\% \\ \hline
+Sprint 8 & HU8 & Documentación técnica: Documentar, manuales de uso,  Control de versiones, mantenimiento del repositorio (Git) del HU8 & 16 h / 21 SP & Alumno & 0\% \\ \hline
+Sprint 9 & Prueba & Prueba e integración final & 36 h / 34 SP & Alumno & 0\% \\ \hline
+Sprint 10 & Escritura & Redacción memoria & 45 h / 34 SP & Alumno & 0\% \\ \hline
+Sprint 11 & Defensa & Preparación de la exposición & 20 h / 13 SP & Alumno & 0\% \\ \hline
+\end{tabularx}
+\caption{Sprint}
+\end{table}
+
+
+
+%\textbf{Recomendaciones:}
+%\begin{itemize}
+  %\item Verificar que la carga horaria por sprint sea equilibrada.
+  %\item Usar sprints de 1 a 3 semanas, acordes al cronograma general.
+  %\item Actualizar el \% completado durante el seguimiento del proyecto.
+  %\item Considerar un sprint final exclusivo para pruebas, revisión y ajustes antes de la defensa.
+%\end{itemize}
+
+
+\section{11. Diagrama de Gantt (sprints)}
+\label{sec:gantt}
+
+Visualizar en un diagrama de Gantt la planificación temporal del proyecto, tomando como base los sprints definidos en la sección anterior. Debe contemplar todas las horas del proyecto.
+
+Consigna:
+
+\begin{itemize}
+
+\item Elaborar un diagrama de Gantt que muestre la secuencia temporal de los sprints.
+
+\item Cada fila debe representar un sprint (con su número o nombre), y el eje horizontal debe indicar el tiempo (en semanas o fechas concretas).
+
+\item Las tareas técnicas derivadas de HU deben diferenciarse visualmente (por ejemplo, con un color distinto) de las tareas no técnicas (planificación, redacción, defensa).
+
+\item Incluir todas las tareas estimadas en cada sprint.
+\end{itemize}
+
+Recomendaciones para el Gantt:
+
+\begin{itemize}
+
+	\item Podés usar herramientas gratuitas como TeamGantt, ClickUp, GanttProject, [Google Sheets], [Trello + Planyway], entre otras.
+	\item Ordená los sprints de forma cronológica, comenzando con Sprint 0 (planificación) y finalizando con el sprint de defensa.
+	\item Asegurate de reflejar la duración realista de cada sprint según tu disponibilidad y el cronograma general del posgrado.
+	\item Incluí hitos importantes: reuniones, entregas parciales, defensa.
+\end{itemize}
+
+
+Incluir una imagen legible del diagrama de Gantt. Si es muy ancho, presentar primero la tabla y luego el gráfico de barras.
+
+
+
+\section{12. Gobernanza de datos}
+\label{sec:gobernanza}
+
+En esta sección se debe analizar de manera integral el marco normativo y ético asociado al uso de los datos y al desarrollo de soluciones basadas en inteligencia artificial.
+
+El análisis se divide en dos partes:
+
+\begin{itemize}
+  \item Cumplimiento normativo.
+  \item Ética en el uso de inteligencia artificial.
+\end{itemize}
+
+\subsection{Cumplimiento normativo}
+Este análisis es clave para garantizar el cumplimiento normativo y evitar conflictos legales durante el desarrollo y publicación del proyecto.
+
+En esta subsección se debe identificar si los datos utilizados en el proyecto están sujetos a normativas de protección de datos y privacidad, y en qué condiciones pueden emplearse.
+
+Aspectos a considerar:
+
+\begin{itemize}
+  \item Determinar si los datos están regulados por normativas como el GDPR, la Ley 25.326 de Protección de Datos Personales (Argentina), la HIPAA u otras, según la jurisdicción o la temática del proyecto.
+  \item Aclarar si las fuentes de datos son propias, de acceso público o licenciadas. En este último caso, explicitar la licencia correspondiente y sus condiciones de uso. Realizar este mismo análisis para las herramientas y, en caso de corresponder, para los modelos preentrenados a emplear.
+  \item Analizar la viabilidad legal del proyecto, considerando los mecanismos necesarios para garantizar el cumplimiento normativo y la trazabilidad de los datos.
+\end{itemize}
+
+\subsection{Ética en el uso de inteligencia artificial}
+
+En esta subsección se debe reflexionar sobre los aspectos éticos vinculados al uso de datos y algoritmos de inteligencia artificial. Se espera una evaluación de la integridad del sistema y su impacto social.
+
+Aspectos a considerar:
+
+\begin{itemize}
+	\item Identificar posibles sesgos en los datos o modelos (ideológicos, culturales, de género, geográficos, etc.) y analizar sus consecuencias (por ejemplo: discriminación, manipulación, pérdida de privacidad o desinformación).
+	\item Analizar los posibles riesgos en términos de impacto social del uso indebido de la solución a desarrollar.
+	\item En caso de corresponder, proponer medidas de mitigación y mecanismos de confianza (auditorías, documentación, trazabilidad, revisión humana, etc.).
+	\item Finalmente, elaborar una reflexión general sobre la ética del proyecto, considerando tanto la equidad y transparencia del sistema como su impacto potencial en la sociedad.
+
+\end{itemize}
+
+
+\section{13. Gestión de riesgos}
+\label{sec:riesgos}
+
+\begin{consigna}{red}
+a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
+ 
+Riesgo 1: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos de forma negativa)
+\begin{itemize}
+	\item Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).\\
+	Justificar el motivo por el cual se asigna determinado número de severidad (S).
+	\item Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).\\
+	Justificar el motivo por el cual se asigna determinado número de (O). 
+\end{itemize}   
+
+Riesgo 2:
+\begin{itemize}
+	\item Severidad (S): X.\\
+	Justificación...
+	\item Ocurrencia (O): Y.\\
+	Justificación...
+\end{itemize}
+
+Riesgo 3:
+\begin{itemize}
+	\item Severidad (S):  X.\\
+	Justificación...
+	\item Ocurrencia (O): Y.\\
+	Justificación...
+\end{itemize}
+
+
+b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
+
+\begin{table}[htpb]
+\centering
+\begin{tabularx}{\linewidth}{@{}|X|c|c|c|c|c|c|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
+       &   &   &     &    &    &      \\ \hline
+       &   &   &     &    &    &      \\ \hline
+       &   &   &     &    &    &      \\ \hline
+       &   &   &     &    &    &      \\ \hline
+       &   &   &     &    &    &      \\ \hline
+\end{tabularx}%
+\end{table}
+
+Criterio adoptado: 
+
+Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a...
+
+Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
+
+c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
+ 
+Riesgo 1: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+  Nueva asignación de S y O, con su respectiva justificación:
+  \begin{itemize}
+	\item Severidad (S*): mientras más severo, más alto es el número (usar números del 1 al 10).
+          Justificar el motivo por el cual se asigna determinado número de severidad (S).
+	\item Probabilidad de ocurrencia (O*): mientras más probable, más alto es el número (usar del 1 al 10).
+          Justificar el motivo por el cual se asigna determinado número de (O).
+	\end{itemize}
+
+Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+ 
+Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+
+\end{consigna}
+
+\section{14. Sprint Review}
+\label{sec:sprint_review}
+
+La revisión de sprint (\emph{Sprint Review}) es una práctica fundamental en metodologías ágiles. Consiste en revisar y evaluar lo que se ha completado al finalizar un sprint. En esta instancia, se presentan los avances y se verifica si las funcionalidades cumplen con los criterios de aceptación establecidos. También se identifican entregables parciales y se consideran ajustes si es necesario.
+
+Aunque el proyecto aún se encuentre en etapa de planificación, esta sección permite proyectar cómo se evaluarán las funcionalidades más importantes del backlog. Esta mirada anticipada favorece la planificación enfocada en valor y permite reflexionar sobre posibles obstáculos.
+
+\textbf{Objetivo:} anticipar cómo se evaluará el avance del proyecto a medida que se desarrollen las funcionalidades, utilizando como base al menos cuatro historias de usuario del \emph{Product Backlog}.
+
+
+Seleccionar al menos 4 HU del Product Backlog. Para cada una, completar la siguiente tabla de revisión proyectada:
+
+\textbf{Formato sugerido:}
+\begin{table}[htpb]
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|>{\raggedright\arraybackslash}m{2.4cm}|
+                >{\raggedright\arraybackslash}m{2.3cm}|
+                >{\raggedright\arraybackslash}m{3cm}|
+                >{\raggedright\arraybackslash}m{3cm}|
+                >{\raggedright\arraybackslash}m{3cm}|}
+\hline
+\rowcolor[HTML]{CCCCCC}
+\textbf{HU seleccionada} & \textbf{Tareas asociadas} & \textbf{Entregable esperado} & \textbf{¿Cómo sabrás que está cumplida?} & \textbf{Observaciones o riesgos} \\
+\hline
+                         & Tarea 1 &                             &                                           &                                     \\ \cline{2-2}
+\multirow{-2}{=}{HU1}    & Tarea 2 & \multirow{-2}{=}{Módulo funcional} & \multirow{-2}{=}{Cumple criterios de aceptación definidos} & \multirow{-2}{=}{Falta validar con el tutor} \\
+\hline
+                         & Tarea 1 &                             &                                           &                                     \\ \cline{2-2}
+\multirow{-2}{=}{HU3}    & Tarea 2 & \multirow{-2}{=}{Reporte generado} & \multirow{-2}{=}{Exportación disponible y clara} & \multirow{-2}{=}{Requiere datos reales} \\
+\hline
+                         & Tarea 1 &                             &                                           &                                     \\ \cline{2-2}
+\multirow{-2}{=}{HU5}    & Tarea 2 & \multirow{-2}{=}{Panel de gestión} & \multirow{-2}{=}{Roles diferenciados operativos} & \multirow{-2}{=}{Riesgo en integración} \\
+\hline
+                         & Tarea 1 &                             &                                           &                                     \\ \cline{2-2}
+\multirow{-2}{=}{HU7}    & Tarea 2 & \multirow{-2}{=}{Informe trimestral} & \multirow{-2}{=}{PDF con gráficos y evolución} & \multirow{-2}{=}{Puede faltar tiempo para ajustes} \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{15. Sprint Retrospective}    
+\label{sec:sprint_retro}
+
+La retrospectiva de sprint es una práctica orientada a la mejora continua. Al finalizar un sprint, el equipo (o el alumno, si trabaja de forma individual) reflexiona sobre lo que funcionó bien, lo que puede mejorarse y qué acciones concretas pueden implementarse para trabajar mejor en el futuro.
+
+Durante la cursada se propuso el uso de la \textbf{Estrella de la Retrospectiva}, que organiza la reflexión en torno a cinco ejes:
+
+\begin{itemize}
+\item  ¿Qué hacer más?
+\item  ¿Qué hacer menos?
+\item  ¿Qué mantener?
+\item  ¿Qué empezar a hacer?
+\item  ¿Qué dejar de hacer?
+\end{itemize}
+
+Aun en una etapa temprana, esta herramienta permite que el alumno planifique su forma de trabajar, identifique anticipadamente posibles dificultades y diseñe estrategias de organización personal.
+
+\textbf{Objetivo:} reflexionar sobre las condiciones iniciales del proyecto, identificando fortalezas, posibles dificultades y estrategias de mejora, incluso antes del inicio del desarrollo.
+
+
+Completar la siguiente tabla tomando como referencia los cinco ejes de la Estrella de la Retrospectiva (\emph{Starfish} o estrella de mar). Esta instancia te ayudará a definir buenas prácticas desde el inicio y prepararte para enfrentar el trabajo de forma organizada y flexible. Se deberá completar la tabla al menos para 3 sprints técnicos y 1 no técnico.
+
+\textbf{Formato sugerido:}
+
+\begin{table}[htpb]
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{1.8cm}|
+                >{\raggedright\arraybackslash}p{2.3cm}|
+                >{\raggedright\arraybackslash}p{2.3cm}|
+                >{\raggedright\arraybackslash}p{2.3cm}|
+                >{\raggedright\arraybackslash}p{2.3cm}|
+                >{\raggedright\arraybackslash}p{2.3cm}|}
+\hline
+\rowcolor[HTML]{CCCCCC} 
+\textbf{Sprint tipo y N°} & \textbf{¿Qué hacer más?} & \textbf{¿Qué hacer menos?} & \textbf{¿Qué mantener?} & \textbf{¿Qué empezar a hacer?} & \textbf{¿Qué dejar de hacer?} \\
+\hline
+Sprint técnico - 1 & Validaciones continuas con el alumno & Cambios sin versión registrada & Pruebas con datos simulados & Documentar cambios propuestos & Ajustes sin análisis de impacto \\
+\hline
+Sprint técnico - 2 & Verificar configuraciones en múltiples escenarios & Modificar parámetros sin guardar historial & Perfiles reutilizables & Usar logs para configuración & Repetir pruebas manuales innecesarias \\
+\hline
+Sprint técnico - 8 & Comparar correlaciones con casos previos & Cambiar parámetros sin justificar & Revisión cruzada de métricas & Anotar configuraciones usadas & Trabajar sin respaldo de datos \\
+\hline
+Sprint no técnico - 12 (por ej.: ``Defensa'') & Ensayos orales con feedback & Cambiar contenidos en la memoria & Material visual claro & Dividir la presentación por bloques & Agregar gráficos difíciles de explicar \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+
+\end{document}
