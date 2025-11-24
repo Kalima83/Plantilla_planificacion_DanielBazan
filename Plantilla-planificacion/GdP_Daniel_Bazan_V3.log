@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.10.21)  23 NOV 2025 01:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.10)  24 NOV 2025 05:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -209,9 +209,9 @@ Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
 Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
-(babel)             (\language65). Reported on input line 105.
+(babel)             (\language78). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
-(babel)             (\language65). Reported on input line 108.
+(babel)             (\language78). Reported on input line 108.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/babel-spanish/spanish.ldf
 Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
@@ -880,6 +880,10 @@ Package: titletoc 2023/10/27 v2.16 TOC entries
 (./GdP_Daniel_Bazan_V3.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
+
+
+LaTeX Warning: Label `fig:gantt_bazan' multiply defined.
+
 )
 \openout1 = `GdP_Daniel_Bazan_V3.aux'.
 
@@ -901,8 +905,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
 LaTeX Font Info:    ... okay on input line 36.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 36.
 LaTeX Font Info:    ... okay on input line 36.
-
-(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count352
 \scratchdimen=\dimen295
@@ -1049,12 +1052,12 @@ Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 316.
  [8]
 File: ./Figuras/logoFIUBA.pdf Graphic file (type pdf)
 <use ./Figuras/logoFIUBA.pdf>
-Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 366.
+Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 365.
 (pdftex.def)             Requested size: 99.58464pt x 33.19096pt.
  [9]
 File: ./Figuras/logoFIUBA.pdf Graphic file (type pdf)
 <use ./Figuras/logoFIUBA.pdf>
-Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 435.
+Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 430.
 (pdftex.def)             Requested size: 99.58464pt x 33.19096pt.
  [10]
 File: ./Figuras/logoFIUBA.pdf Graphic file (type pdf)
@@ -1062,801 +1065,611 @@ File: ./Figuras/logoFIUBA.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 489.
 (pdftex.def)             Requested size: 99.58464pt x 33.19096pt.
  [11]
-Underfull \hbox (badness 1221) in paragraph at lines 545--545
+Underfull \hbox (badness 1221) in paragraph at lines 546--546
 []|\OT1/cmr/m/n/10.95 Tarea 1: Di-se~nar for-mu-la-rio
  []
 
 
-Underfull \hbox (badness 2932) in paragraph at lines 545--545
+Underfull \hbox (badness 2932) in paragraph at lines 546--546
 []|\OT1/cmr/m/n/10.95 Tarea 3: In-te-grar vis-ta de
  []
 
 
-Underfull \hbox (badness 2512) in paragraph at lines 545--545
+Underfull \hbox (badness 2512) in paragraph at lines 546--546
 []|\OT1/cmr/m/n/10.95 Tarea 4: Re-gis-trar logs de
  []
 
 
-Underfull \hbox (badness 1688) in paragraph at lines 575--575
+Underfull \hbox (badness 1688) in paragraph at lines 577--577
 []|\OT1/cmr/m/n/10.95 Tarea 1: Di-se~nar mo-tor de
  []
 
 
-Underfull \hbox (badness 2744) in paragraph at lines 575--575
+Underfull \hbox (badness 2744) in paragraph at lines 577--577
 []|\OT1/cmr/m/n/10.95 Tarea 3: Pro-bar y ajus-tar
  []
 
 
-Underfull \hbox (badness 3826) in paragraph at lines 575--575
+Underfull \hbox (badness 3826) in paragraph at lines 577--577
 []|\OT1/cmr/m/n/10.95 Tarea 3: Va-li-dar ca-sos de
  []
 
 
-Underfull \hbox (badness 2158) in paragraph at lines 575--575
+Underfull \hbox (badness 2158) in paragraph at lines 577--577
 \OT1/cmr/m/n/10.95 re-por-te au-to-ma-ti-za-do (men-
  []
 
 
-Underfull \hbox (badness 6559) in paragraph at lines 575--575
+Underfull \hbox (badness 6559) in paragraph at lines 577--577
 []|\OT1/cmr/m/n/10.95 Tarea 3: Pro-gra-mar env^^S^^Po
  []
 
 
-Underfull \hbox (badness 1910) in paragraph at lines 575--575
+Underfull \hbox (badness 1910) in paragraph at lines 577--577
 \OT1/cmr/m/n/10.95 au-tom^^Sati-co de re-por-tes por
  []
 
 
-LaTeX Warning: Float too large for page by 12.89297pt on input line 577.
+LaTeX Warning: Float too large for page by 40.49297pt on input line 579.
+
+
+Underfull \hbox (badness 2158) in paragraph at lines 591--591
+\OT1/cmr/m/n/10.95 re-por-te au-to-ma-ti-za-do (men-
+ []
+
+
+Underfull \hbox (badness 6559) in paragraph at lines 591--591
+[]|\OT1/cmr/m/n/10.95 Tarea 3: Pro-gra-mar env^^S^^Po
+ []
+
+
+Underfull \hbox (badness 1910) in paragraph at lines 591--591
+\OT1/cmr/m/n/10.95 au-tom^^Sati-co de re-por-tes por
+ []
 
 File: ./Figuras/logoFIUBA.pdf Graphic file (type pdf)
 <use ./Figuras/logoFIUBA.pdf>
-Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 600.
+Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 615.
 (pdftex.def)             Requested size: 99.58464pt x 33.19096pt.
 [12]
 File: ./Figuras/logoFIUBA.pdf Graphic file (type pdf)
 <use ./Figuras/logoFIUBA.pdf>
-Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 600.
+Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 615.
 (pdftex.def)             Requested size: 99.58464pt x 33.19096pt.
  [13]
-Underfull \hbox (badness 1377) in paragraph at lines 706--706
-[]|\OT1/cmr/m/n/10.95 Reuni^^Son con el
- []
-
-
-Underfull \hbox (badness 3612) in paragraph at lines 706--706
-[]|\OT1/cmr/m/n/10.95 Prueba e in-te-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 668--668
 []|\OT1/cmr/m/n/10.95 Reuniones de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 668--668
 \OT1/cmr/m/n/10.95 se-gui-mien-to:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 Va-li-da-ci^^Son
- []
-
-
-Underfull \hbox (badness 6510) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 con el clien-te,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 re-vi-sio-nes
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 668--668
 \OT1/cmr/m/n/10.95 de sprint,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 de-mos-tra-cio-nes
+Underfull \hbox (badness 5817) in paragraph at lines 668--668
+\OT1/cmr/m/n/10.95 go, op-ti-mi-za-ci^^Son
  []
 
 
-Underfull \hbox (badness 3503) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 y feed-back del
+Underfull \hbox (badness 4328) in paragraph at lines 668--668
+\OT1/cmr/m/n/10.95 y re-fac-to-ri-za-ci^^Son
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 692--692
 []|\OT1/cmr/m/n/10.95 Documentaci^^Son
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 692--692
 \OT1/cmr/m/n/10.95 t^^Secni-ca:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 692--692
 \OT1/cmr/m/n/10.95 Do-cu-men-tar,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 ma-nua-les de
+Underfull \hbox (badness 10000) in paragraph at lines 692--692
+\OT1/cmr/m/n/10.95 ma-nua-les de uso,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 uso, Con-trol
+Underfull \hbox (badness 10000) in paragraph at lines 692--692
+\OT1/cmr/m/n/10.95 man-te-ni-mien-to del
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 de ver-sio-nes,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 man-te-ni-mien-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 del re-po-si-to-rio
- []
-
-
-Underfull \hbox (badness 3612) in paragraph at lines 706--706
-[]|\OT1/cmr/m/n/10.95 Prueba e in-te-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 692--692
 []|\OT1/cmr/m/n/10.95 Reuniones de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 692--692
 \OT1/cmr/m/n/10.95 se-gui-mien-to:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 692--692
 \OT1/cmr/m/n/10.95 Va-li-da-ci^^Son
  []
 
 
-Underfull \hbox (badness 6510) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 692--692
 \OT1/cmr/m/n/10.95 con el clien-te,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 re-vi-sio-nes
+Underfull \hbox (badness 10000) in paragraph at lines 692--692
+\OT1/cmr/m/n/10.95 de-mos-tra-cio-nes y
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 de sprint,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 de-mos-tra-cio-nes
- []
-
-
-Underfull \hbox (badness 3503) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 y feed-back del
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 692--692
 []|\OT1/cmr/m/n/10.95 Documentaci^^Son
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 692--692
 \OT1/cmr/m/n/10.95 t^^Secni-ca:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 692--692
 \OT1/cmr/m/n/10.95 Do-cu-men-tar,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 ma-nua-les de
+Underfull \hbox (badness 10000) in paragraph at lines 692--692
+\OT1/cmr/m/n/10.95 ma-nua-les de uso,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 uso, Con-trol
+Underfull \hbox (badness 10000) in paragraph at lines 692--692
+\OT1/cmr/m/n/10.95 man-te-ni-mien-to del
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 de ver-sio-nes,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 man-te-ni-mien-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 del re-po-si-to-rio
- []
-
-
-Underfull \hbox (badness 3612) in paragraph at lines 706--706
-[]|\OT1/cmr/m/n/10.95 Prueba e in-te-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 692--692
 []|\OT1/cmr/m/n/10.95 Reuniones de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 692--692
 \OT1/cmr/m/n/10.95 se-gui-mien-to:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 692--692
 \OT1/cmr/m/n/10.95 Va-li-da-ci^^Son
  []
 
 
-Underfull \hbox (badness 6510) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 692--692
 \OT1/cmr/m/n/10.95 con el clien-te,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 re-vi-sio-nes
+Underfull \hbox (badness 10000) in paragraph at lines 692--692
+\OT1/cmr/m/n/10.95 de-mos-tra-cio-nes y
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 de sprint,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 de-mos-tra-cio-nes
- []
-
-
-Underfull \hbox (badness 3503) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 y feed-back del
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
 []|\OT1/cmr/m/n/10.95 Documentaci^^Son
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
 \OT1/cmr/m/n/10.95 t^^Secni-ca:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
 \OT1/cmr/m/n/10.95 Do-cu-men-tar,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 ma-nua-les de
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
+\OT1/cmr/m/n/10.95 ma-nua-les de uso,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 uso, Con-trol
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
+\OT1/cmr/m/n/10.95 man-te-ni-mien-to del
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 de ver-sio-nes,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 man-te-ni-mien-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 del re-po-si-to-rio
- []
-
-
-Underfull \hbox (badness 3612) in paragraph at lines 706--706
-[]|\OT1/cmr/m/n/10.95 Prueba e in-te-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
 []|\OT1/cmr/m/n/10.95 Reuniones de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
 \OT1/cmr/m/n/10.95 se-gui-mien-to:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
 \OT1/cmr/m/n/10.95 Va-li-da-ci^^Son
  []
 
 
-Underfull \hbox (badness 6510) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
 \OT1/cmr/m/n/10.95 con el clien-te,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 re-vi-sio-nes
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
+\OT1/cmr/m/n/10.95 de-mos-tra-cio-nes y
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 de sprint,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 de-mos-tra-cio-nes
- []
-
-
-Underfull \hbox (badness 3503) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 y feed-back del
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
 []|\OT1/cmr/m/n/10.95 Documentaci^^Son
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
 \OT1/cmr/m/n/10.95 t^^Secni-ca:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
 \OT1/cmr/m/n/10.95 Do-cu-men-tar,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 ma-nua-les de
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
+\OT1/cmr/m/n/10.95 ma-nua-les de uso,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 uso, Con-trol
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
+\OT1/cmr/m/n/10.95 man-te-ni-mien-to del
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 de ver-sio-nes,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 man-te-ni-mien-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 del re-po-si-to-rio
- []
-
-
-Underfull \hbox (badness 3612) in paragraph at lines 706--706
-[]|\OT1/cmr/m/n/10.95 Prueba e in-te-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
 []|\OT1/cmr/m/n/10.95 Reuniones de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
 \OT1/cmr/m/n/10.95 se-gui-mien-to:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
 \OT1/cmr/m/n/10.95 Va-li-da-ci^^Son
  []
 
 
-Underfull \hbox (badness 6510) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
 \OT1/cmr/m/n/10.95 con el clien-te,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 re-vi-sio-nes
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
+\OT1/cmr/m/n/10.95 de-mos-tra-cio-nes y
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 de sprint,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 de-mos-tra-cio-nes
- []
-
-
-Underfull \hbox (badness 3503) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 y feed-back del
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 738--738
 []|\OT1/cmr/m/n/10.95 Documentaci^^Son
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 738--738
 \OT1/cmr/m/n/10.95 t^^Secni-ca:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 738--738
 \OT1/cmr/m/n/10.95 Do-cu-men-tar,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 ma-nua-les de
+Underfull \hbox (badness 10000) in paragraph at lines 738--738
+\OT1/cmr/m/n/10.95 ma-nua-les de uso,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 uso, Con-trol
+Underfull \hbox (badness 10000) in paragraph at lines 738--738
+\OT1/cmr/m/n/10.95 man-te-ni-mien-to del
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 de ver-sio-nes,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 man-te-ni-mien-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 del re-po-si-to-rio
- []
-
-
-Underfull \hbox (badness 3612) in paragraph at lines 706--706
-[]|\OT1/cmr/m/n/10.95 Prueba e in-te-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 738--738
 []|\OT1/cmr/m/n/10.95 Reuniones de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 738--738
 \OT1/cmr/m/n/10.95 se-gui-mien-to:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 738--738
 \OT1/cmr/m/n/10.95 Va-li-da-ci^^Son
  []
 
 
-Underfull \hbox (badness 6510) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 738--738
 \OT1/cmr/m/n/10.95 con el clien-te,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 re-vi-sio-nes
+Underfull \hbox (badness 10000) in paragraph at lines 738--738
+\OT1/cmr/m/n/10.95 de-mos-tra-cio-nes y
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 de sprint,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 de-mos-tra-cio-nes
- []
-
-
-Underfull \hbox (badness 3503) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 y feed-back del
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 738--738
 []|\OT1/cmr/m/n/10.95 Documentaci^^Son
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 738--738
 \OT1/cmr/m/n/10.95 t^^Secni-ca:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 738--738
 \OT1/cmr/m/n/10.95 Do-cu-men-tar,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 ma-nua-les de
+Underfull \hbox (badness 10000) in paragraph at lines 738--738
+\OT1/cmr/m/n/10.95 ma-nua-les de uso,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 uso, Con-trol
+Underfull \hbox (badness 10000) in paragraph at lines 738--738
+\OT1/cmr/m/n/10.95 man-te-ni-mien-to del
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 de ver-sio-nes,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 man-te-ni-mien-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 del re-po-si-to-rio
- []
-
-
-Underfull \hbox (badness 3612) in paragraph at lines 706--706
-[]|\OT1/cmr/m/n/10.95 Prueba e in-te-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 738--738
 []|\OT1/cmr/m/n/10.95 Reuniones de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 738--738
 \OT1/cmr/m/n/10.95 se-gui-mien-to:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 738--738
 \OT1/cmr/m/n/10.95 Va-li-da-ci^^Son
  []
 
 
-Underfull \hbox (badness 6510) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 738--738
 \OT1/cmr/m/n/10.95 con el clien-te,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 re-vi-sio-nes
+Underfull \hbox (badness 10000) in paragraph at lines 738--738
+\OT1/cmr/m/n/10.95 de-mos-tra-cio-nes y
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 de sprint,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 de-mos-tra-cio-nes
- []
-
-
-Underfull \hbox (badness 3503) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 y feed-back del
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 758--758
 []|\OT1/cmr/m/n/10.95 Documentaci^^Son
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 758--758
 \OT1/cmr/m/n/10.95 t^^Secni-ca:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 758--758
 \OT1/cmr/m/n/10.95 Do-cu-men-tar,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 758--758
 \OT1/cmr/m/n/10.95 ma-nua-les de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 758--758
 \OT1/cmr/m/n/10.95 uso, Con-trol
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 758--758
 \OT1/cmr/m/n/10.95 de ver-sio-nes,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 man-te-ni-mien-to
+Underfull \hbox (badness 2111) in paragraph at lines 758--758
+\OT1/cmr/m/n/10.95 man-te-ni-mien-to del
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 del re-po-si-to-rio
+Underfull \hbox (badness 10000) in paragraph at lines 758--758
+\OT1/cmr/m/n/10.95 re-po-si-to-rio (Git)
  []
 
 
-Underfull \hbox (badness 3612) in paragraph at lines 706--706
-[]|\OT1/cmr/m/n/10.95 Prueba e in-te-
+Underfull \hbox (badness 2452) in paragraph at lines 758--758
+[]|\OT1/cmr/m/n/10.95 Prueba e in-te-gra-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 758--758
 []|\OT1/cmr/m/n/10.95 Reuniones de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 758--758
 \OT1/cmr/m/n/10.95 se-gui-mien-to:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 758--758
 \OT1/cmr/m/n/10.95 Va-li-da-ci^^Son
  []
 
 
-Underfull \hbox (badness 6510) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 758--758
 \OT1/cmr/m/n/10.95 con el clien-te,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 re-vi-sio-nes
+Underfull \hbox (badness 10000) in paragraph at lines 758--758
+\OT1/cmr/m/n/10.95 de-mos-tra-cio-nes y
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 de sprint,
+Underfull \hbox (badness 3396) in paragraph at lines 758--758
+[]|\OT1/cmr/m/n/10.95 Revisi^^Son de c^^Sodi-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 de-mos-tra-cio-nes
+Underfull \hbox (badness 4518) in paragraph at lines 758--758
+\OT1/cmr/m/n/10.95 re-fac-to-ri-za-ci^^Son del
  []
 
 
-Underfull \hbox (badness 3503) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 y feed-back del
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 758--758
 []|\OT1/cmr/m/n/10.95 Documentaci^^Son
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 758--758
 \OT1/cmr/m/n/10.95 t^^Secni-ca:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 758--758
 \OT1/cmr/m/n/10.95 Do-cu-men-tar,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 758--758
 \OT1/cmr/m/n/10.95 ma-nua-les de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 758--758
 \OT1/cmr/m/n/10.95 uso, Con-trol
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 758--758
 \OT1/cmr/m/n/10.95 de ver-sio-nes,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 man-te-ni-mien-to
+Underfull \hbox (badness 2111) in paragraph at lines 758--758
+\OT1/cmr/m/n/10.95 man-te-ni-mien-to del
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-\OT1/cmr/m/n/10.95 del re-po-si-to-rio
+Underfull \hbox (badness 10000) in paragraph at lines 758--758
+\OT1/cmr/m/n/10.95 re-po-si-to-rio (Git)
  []
 
 
-Underfull \hbox (badness 3612) in paragraph at lines 706--706
-[]|\OT1/cmr/m/n/10.95 Prueba e in-te-
+Underfull \hbox (badness 2452) in paragraph at lines 758--758
+[]|\OT1/cmr/m/n/10.95 Prueba e in-te-gra-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-[]|\OT1/cmr/m/n/10.95 Redacci^^Son
+Underfull \hbox (badness 1874) in paragraph at lines 758--758
+[]|\OT1/cmr/m/n/10.95 Preparaci^^Son de la
  []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
-[]|\OT1/cmr/m/n/10.95 Preparaci^^Son de
- []
-
-
-LaTeX Warning: Float too large for page by 2478.09315pt on input line 708.
 
 File: ./Figuras/logoFIUBA.pdf Graphic file (type pdf)
 <use ./Figuras/logoFIUBA.pdf>
-Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 721.
+Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 771.
 (pdftex.def)             Requested size: 99.58464pt x 33.19096pt.
 [14]
 File: ./Figuras/logoFIUBA.pdf Graphic file (type pdf)
 <use ./Figuras/logoFIUBA.pdf>
-Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 721.
+Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 771.
 (pdftex.def)             Requested size: 99.58464pt x 33.19096pt.
  [15]
 File: ./Figuras/logoFIUBA.pdf Graphic file (type pdf)
 <use ./Figuras/logoFIUBA.pdf>
-Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 774.
+Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 771.
 (pdftex.def)             Requested size: 99.58464pt x 33.19096pt.
  [16]
 File: ./Figuras/logoFIUBA.pdf Graphic file (type pdf)
 <use ./Figuras/logoFIUBA.pdf>
-Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 804.
+Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 771.
 (pdftex.def)             Requested size: 99.58464pt x 33.19096pt.
  [17]
 File: ./Figuras/logoFIUBA.pdf Graphic file (type pdf)
 <use ./Figuras/logoFIUBA.pdf>
-Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 868.
+Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 771.
 (pdftex.def)             Requested size: 99.58464pt x 33.19096pt.
  [18]
+<./Figuras/GdP_BAZAN_gan_page3.png, id=246, 1042.64531pt x 342.5297pt>
+File: ./Figuras/GdP_BAZAN_gan_page3.png Graphic file (type png)
+<use ./Figuras/GdP_BAZAN_gan_page3.png>
+Package pdftex.def Info: ./Figuras/GdP_BAZAN_gan_page3.png  used on input line 
+804.
+(pdftex.def)             Requested size: 430.31812pt x 141.36841pt.
+<./Figuras/GdP_BAZAN_gan_page1.png, id=248, 1689.31125pt x 1194.4625pt>
+File: ./Figuras/GdP_BAZAN_gan_page1.png Graphic file (type png)
+<use ./Figuras/GdP_BAZAN_gan_page1.png>
+Package pdftex.def Info: ./Figuras/GdP_BAZAN_gan_page1.png  used on input line 
+811.
+(pdftex.def)             Requested size: 430.31812pt x 304.26495pt.
+<./Figuras/GdP_BAZAN_gan_page2.png, id=249, 1689.31125pt x 1189.44376pt>
+File: ./Figuras/GdP_BAZAN_gan_page2.png Graphic file (type png)
+<use ./Figuras/GdP_BAZAN_gan_page2.png>
+Package pdftex.def Info: ./Figuras/GdP_BAZAN_gan_page2.png  used on input line 
+812.
+(pdftex.def)             Requested size: 430.31812pt x 302.98653pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 File: ./Figuras/logoFIUBA.pdf Graphic file (type pdf)
 <use ./Figuras/logoFIUBA.pdf>
-Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 915.
+Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 823.
 (pdftex.def)             Requested size: 99.58464pt x 33.19096pt.
- [19]
+[19 <./Figuras/GdP_BAZAN_gan_page3.png>]
+File: ./Figuras/logoFIUBA.pdf Graphic file (type pdf)
+<use ./Figuras/logoFIUBA.pdf>
+Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 839.
+(pdftex.def)             Requested size: 99.58464pt x 33.19096pt.
+ [20 <./Figuras/GdP_BAZAN_gan_page1.png (PNG copy)> <./Figuras/GdP_BAZAN_gan_pa
+ge2.png (PNG copy)>]
+File: ./Figuras/logoFIUBA.pdf Graphic file (type pdf)
+<use ./Figuras/logoFIUBA.pdf>
+Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 894.
+(pdftex.def)             Requested size: 99.58464pt x 33.19096pt.
+ [21]
 File: ./Figuras/logoFIUBA.pdf Graphic file (type pdf)
 <use ./Figuras/logoFIUBA.pdf>
 Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 953.
 (pdftex.def)             Requested size: 99.58464pt x 33.19096pt.
- [20]
+ [22]
+File: ./Figuras/logoFIUBA.pdf Graphic file (type pdf)
+<use ./Figuras/logoFIUBA.pdf>
+Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 1002.
+(pdftex.def)             Requested size: 99.58464pt x 33.19096pt.
+ [23]
+File: ./Figuras/logoFIUBA.pdf Graphic file (type pdf)
+<use ./Figuras/logoFIUBA.pdf>
+Package pdftex.def Info: ./Figuras/logoFIUBA.pdf  used on input line 1035.
+(pdftex.def)             Requested size: 99.58464pt x 33.19096pt.
 
+[24] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./GdP_Daniel_Bazan_V3.aux
 LaTeX Info: Redefining \. on input line 11.
@@ -1866,17 +1679,21 @@ LaTeX Info: Redefining \% on input line 11.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `GdP_Daniel_Bazan_V3.out' has not changed.
 (rerunfilecheck)             Checksum: AC2A0054C47FA0BBDEB28FD801BFC60A;4221.
  ) 
 Here is how much of TeX's memory you used:
- 26917 strings out of 474222
- 508866 string characters out of 5748732
- 1997975 words of memory out of 5000000
- 48633 multiletter control sequences out of 15000+600000
+ 26955 strings out of 474222
+ 509973 string characters out of 5748732
+ 1977975 words of memory out of 5000000
+ 48660 multiletter control sequences out of 15000+600000
  565566 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,17n,115p,619b,660s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 114i,17n,115p,619b,648s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
@@ -1885,10 +1702,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf/fonts/type1/public
 /cm-super/sfbx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.p
 fb>
-Output written on GdP_Daniel_Bazan_V3.pdf (20 pages, 580446 bytes).
+Output written on GdP_Daniel_Bazan_V3.pdf (24 pages, 881243 bytes).
 PDF statistics:
- 307 PDF objects out of 1000 (max. 8388607)
- 248 compressed objects within 3 object streams
- 58 named destinations out of 1000 (max. 500000)
- 178 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 341 PDF objects out of 1000 (max. 8388607)
+ 274 compressed objects within 3 object streams
+ 69 named destinations out of 1000 (max. 500000)
+ 193 words of extra memory for PDF output out of 10000 (max. 10000000)
 

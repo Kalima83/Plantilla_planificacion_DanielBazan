@@ -9,14 +9,14 @@
 \contentsline {section}{\numberline {6}5. Supuestos del proyecto}{8}{section.6}%
 \contentsline {section}{\numberline {7}6. Product Backlog}{9}{section.7}%
 \contentsline {section}{\numberline {8}7. Criterios de aceptación de historias de usuario}{10}{section.8}%
-\contentsline {section}{\numberline {9}8. Fases de CRISP-DM}{11}{section.9}%
+\contentsline {section}{\numberline {9}8. Fases de CRISP-DM}{12}{section.9}%
 \contentsline {section}{\numberline {10}9. Desglose del trabajo en tareas}{12}{section.10}%
 \contentsline {section}{\numberline {11}10. Planificación de Sprints}{14}{section.11}%
-\contentsline {section}{\numberline {12}11. Diagrama de Gantt (sprints)}{16}{section.12}%
-\contentsline {section}{\numberline {13}12. Gobernanza de datos}{16}{section.13}%
-\contentsline {subsection}{\numberline {13.1}Cumplimiento normativo}{17}{subsection.13.1}%
-\contentsline {subsection}{\numberline {13.2}Ética en el uso de inteligencia artificial}{17}{subsection.13.2}%
-\contentsline {section}{\numberline {14}13. Gestión de riesgos}{17}{section.14}%
-\contentsline {section}{\numberline {15}14. Sprint Review}{19}{section.15}%
-\contentsline {section}{\numberline {16}15. Sprint Retrospective}{19}{section.16}%
+\contentsline {section}{\numberline {12}11. Diagrama de Gantt (sprints)}{19}{section.12}%
+\contentsline {section}{\numberline {13}12. Gobernanza de datos}{21}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Cumplimiento normativo}{21}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Ética en el uso de inteligencia artificial}{21}{subsection.13.2}%
+\contentsline {section}{\numberline {14}13. Gestión de riesgos}{21}{section.14}%
+\contentsline {section}{\numberline {15}14. Sprint Review}{22}{section.15}%
+\contentsline {section}{\numberline {16}15. Sprint Retrospective}{23}{section.16}%
 \contentsfinish 
