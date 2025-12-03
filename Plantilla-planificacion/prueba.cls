@@ -1,4 +1,4 @@
-\def\filename{charter.cls}
+\def\filename{prueba.cls}
 \def\fileversion{v. 0.1.0}
 \def\filedate{junio 1, 2020}
 \def\contributors{Patricio Bos}
@@ -14,7 +14,7 @@
 
 \newbool{codirector}
 
-\ProvidesClass{charter}
+\ProvidesClass{prueba}
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{color}}%
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}%
 \ExecuteOptions{12pt}% execute default options
@@ -89,7 +89,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[]{graphicx}
 \usepackage{lastpage}
-\usepackage{pdflscape}
+\usepackage{lscape}
 \usepackage{pdflscape}
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{multirow}
@@ -178,6 +178,7 @@
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 \raggedbottom
 
+
 % PORTADA
 \def\@maketitle{%
 \newpage
@@ -221,7 +222,6 @@
 %to do not put numbers in sections
 \usepackage{titlesec}
 \titleformat{\section}{}{}{0em}{\large\bfseries}
-
 \usepackage{titletoc}
 \titlecontents{section}
               [0em]
