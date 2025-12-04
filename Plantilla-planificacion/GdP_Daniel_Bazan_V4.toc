@@ -15,9 +15,9 @@
 \contentsline {section}{\numberline {9}8. Fases de CRISP-DM}{12}{section.9}%
 \contentsline {section}{\numberline {10}9. Desglose del trabajo en tareas}{12}{section.10}%
 \contentsline {section}{\numberline {11}10. Planificación de Sprints}{14}{section.11}%
-\contentsline {section}{\numberline {12}11. Diagrama de Gantt (sprints)}{20}{section.12}%
-\contentsline {section}{\numberline {13}12. Gobernanza de datos}{21}{section.13}%
-\contentsline {section}{\numberline {14}13. Gestión de riesgos}{21}{section.14}%
-\contentsline {section}{\numberline {15}14. Sprint Review}{22}{section.15}%
-\contentsline {section}{\numberline {16}15. Sprint Retrospective}{23}{section.16}%
+\contentsline {section}{\numberline {12}11. Diagrama de Gantt (sprints)}{19}{section.12}%
+\contentsline {section}{\numberline {13}12. Gobernanza de datos}{19}{section.13}%
+\contentsline {section}{\numberline {14}13. Gestión de riesgos}{20}{section.14}%
+\contentsline {section}{\numberline {15}14. Sprint Review}{23}{section.15}%
+\contentsline {section}{\numberline {16}15. Sprint Retrospective}{24}{section.16}%
 \contentsfinish 

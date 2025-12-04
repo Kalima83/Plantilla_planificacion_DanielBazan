@@ -67,7 +67,7 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 %		  En distintas líneas \newline
 		                                                      & {11} de {noviembre} de 2025 \\ \hline
 3      & Se completa hasta el punto 12 inclusive                & {22} de {noviembre} de 2025 \\ \hline
-%4      & Se completa el plan	                                 & {día} de {mes} de 202X \\ \hline
+4      & Se completa el plan	                                 & {03} de {diciembre} de 2025 \\ \hline
 
 % Si hay más correcciones pasada la versión 4 también se deben especificar acá
 
@@ -760,7 +760,7 @@ Sprint 9 & Prueba & Prueba e integración final. & 36 h / 34 SP & Alumno & 0\% \
 \hline
 \rowcolor[HTML]{C0C0C0}
 Sprint & HU o fase & Tarea & Horas / SP & Responsable & \% Completado \\ \hline
-Sprint 10 & Escritura & Redacción memoria. & 90 h / 89 SP & Alumno & 0\% \\ \hline
+Sprint 10 & Escritura & Redacción memoria. & 96 h / 89 SP & Alumno & 0\% \\ \hline
 Sprint 11 & Defensa & Preparación de la exposición. & 20 h / 13 SP & Alumno & 0\% \\ \hline
 \end{tabularx}
 \caption{Sprint}
@@ -774,7 +774,7 @@ Sprint 11 & Defensa & Preparación de la exposición. & 20 h / 13 SP & Alumno & 
   %\item Considerar un sprint final exclusivo para pruebas, revisión y ajustes antes de la defensa.
 %\end{itemize}
 
-\begin{landscape}
+%\begin{landscape}
 
 \section{11. Diagrama de Gantt (sprints)}
 \label{sec:gantt}
@@ -809,11 +809,11 @@ Sprint 11 & Defensa & Preparación de la exposición. & 20 h / 13 SP & Alumno & 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=1.5\textwidth]{./Figuras/GdP_BAZAN_gan_page3.png}
+    \includegraphics[width=1\textwidth]{./Figuras/GdP_BAZAN.png}
     \caption{Diagrama de Gantt del proyecto - Resumen.}
     \label{fig:gantt_bazan}
 \end{figure}
-\end{landscape}
+%\end{landscape}
 
 \section{12. Gobernanza de datos}
 \label{sec:gobernanza}
@@ -871,31 +871,59 @@ Referencias:
 \section{13. Gestión de riesgos}
 \label{sec:riesgos}
 
-\begin{consigna}{red}
-a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
- 
-Riesgo 1: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos de forma negativa)
-\begin{itemize}
-	\item Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de (O). 
-\end{itemize}   
+%\begin{consigna}{red}
+a) Identificación de los riesgos %(al menos cinco)
+ y estimación de sus consecuencias:
+%Riesgo 1: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos de forma negativa)
+%\begin{itemize}
+	%\item Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).\\
+	%Justificar el motivo por el cual se asigna determinado número de severidad (S).
+	%\item Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).\\
+	%Justificar el motivo por el cual se asigna determinado número de (O). 
+%\end{itemize}   
 
-Riesgo 2:
+Riesgo 1: Retraso en el desarrollo del modelo IA
 \begin{itemize}
-	\item Severidad (S): X.\\
-	Justificación...
-	\item Ocurrencia (O): Y.\\
-	Justificación...
+\item \textbf{Severidad (S): 8}.\\
+\textit{Justificación:} Un retraso impacta directamente en el cronograma y puede comprometer la entrega del prototipo.
+\item \textbf{Probabilidad de ocurrencia (O): 6}.\\
+\textit{Justificación:} La complejidad técnica del modelo y ajustes en el entrenamiento hacen que este riesgo sea moderadamente probable.
 \end{itemize}
 
-Riesgo 3:
+
+Riesgo 2: Fallo en la infraestructura local para pruebas
 \begin{itemize}
-	\item Severidad (S):  X.\\
-	Justificación...
-	\item Ocurrencia (O): Y.\\
-	Justificación...
+\item \textbf{Severidad (S): 7}.\\
+\textit{Justificación:} Si el hardware no soporta las pruebas, se detiene el avance del proyecto.
+\item \textbf{Probabilidad de ocurrencia (O): 5}.\\
+\textit{Justificación:} Aunque se cuenta con recursos locales, pueden surgir que sea insuficiente, incompatibilidades o fallos inesperados.
+\end{itemize}
+
+
+Riesgo 3: Errores en la calidad de datos
+\begin{itemize}
+\item \textbf{Severidad (S): 9}.\\
+\textit{Justificación:} Datos incompletos o inconsistentes afectan la precisión del modelo y su validación.
+\item \textbf{Probabilidad de ocurrencia (O): 4}.\\
+\textit{Justificación:} Existe riesgo moderado por registros históricos auque resulta posible que sean insuficientes.
+\end{itemize}
+
+
+Riesgo 4: Falta de disponibilidad de especialistas para validación
+\begin{itemize}
+\item \textbf{Severidad (S): 6}.\\
+\textit{Justificación:} Sin validación experta, el modelo puede no cumplir los objetivos.
+\item \textbf{Probabilidad de ocurrencia (O): 5}.\\
+\textit{Justificación:} Riesgo moderado por agendas ocupadas del personal técnico.
+\end{itemize}
+
+
+Riesgo 5: Incumplimiento de protocolos de seguridad del EA
+\begin{itemize}
+\item \textbf{Severidad (S): 10}.\\
+\textit{Justificación:} Implica sanciones y bloqueo del proyecto.
+\item \textbf{Probabilidad de ocurrencia (O): 3}.\\
+\textit{Justificación:} Poco probable si se siguen los lineamientos, pero no imposible.
 \end{itemize}
 
 
@@ -903,58 +931,107 @@ b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
 
 \begin{table}[htpb]
 \centering
-\begin{tabularx}{\linewidth}{@{}|X|c|c|c|c|c|c|@{}}
+\begin{tabularx}{\linewidth}{|X|c|c|c|c|c|c|}
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-\end{tabularx}%
+Retraso en desarrollo IA & 8 & 6 & 48 & 6 & 4 & 24 \\ \hline
+Fallo infraestructura local & 7 & 5 & 35 & 5 & 3 & 15 \\ \hline
+Errores en calidad de datos & 9 & 4 & 36 & 6 & 3 & 18 \\ \hline
+Falta de especialistas & 6 & 5 & 30 & 5 & 3 & 15 \\ \hline
+Incumplimiento protocolos EA & 10 & 3 & 30 & 8 & 2 & 16 \\ \hline
+\end{tabularx}
+\caption{Tabla de gestión de riesgos con RPN antes y después de mitigación.}
 \end{table}
 
 Criterio adoptado: 
 
-Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a...
+Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a 35.
+Para valores menores a 35 y mayores a 20 se consideran moderado, se controla y se revisa periódicamente para evaluar el riesgo y en caso necesario se aplicará la mitigación.
 
 Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
 
 c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
  
-Riesgo 1: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-  Nueva asignación de S y O, con su respectiva justificación:
-  \begin{itemize}
-	\item Severidad (S*): mientras más severo, más alto es el número (usar números del 1 al 10).
+%Riesgo 1: plan de mitigación %(si por el RPN fuera necesario elaborar un plan de mitigación).
+  %Nueva asignación de S y O, con su respectiva justificación:
+  %\begin{itemize}
+	%\item Severidad (S*): mientras más severo, más alto es el número (usar números del 1 al 10).
           Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O*): mientras más probable, más alto es el número (usar del 1 al 10).
+	%\item Probabilidad de ocurrencia (O*): mientras más probable, más alto es el número (usar del 1 al 10).
           Justificar el motivo por el cual se asigna determinado número de (O).
-	\end{itemize}
+	%\end{itemize}
 
-Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+%Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
  
-Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+%Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
 
-\end{consigna}
+\textbf{Riesgo 1: Retraso en el desarrollo del modelo IA}
+\begin{itemize}
+    \item \textbf{Plan de mitigación:} Elaborar cronograma detallado con hitos intermedios, usar librerías probadas, revisiones semanales y pruebas incrementales.
+    \item \textbf{Severidad (S*): 6}.\\
+    \textit{Justificación:} Con planificación y control, el impacto disminuye porque se reduce la probabilidad de retrasos críticos.
+    \item \textbf{Probabilidad (O*): 4}.\\
+    \textit{Justificación:} La ocurrencia baja gracias a buenas prácticas y revisiones periódicas.
+\end{itemize}
+
+\textbf{Riesgo 2: Fallo en la infraestructura local para pruebas}
+\begin{itemize}
+    \item \textbf{Plan de mitigación:} Observación semanal del estado del hardware y, en caso necesario, aplicar medidas como mantenimiento preventivo o uso de equipos alternativos.
+    \item \textbf{Severidad (S*): 7}.\\
+    \textit{Justificación:} El impacto se mantiene porque depende del hardware, pero se controla con monitoreo.
+    \item \textbf{Probabilidad (O*): 4}.\\
+    \textit{Justificación:} Con revisiones semanales, la probabilidad baja.
+\end{itemize}
+
+\textbf{Riesgo 3: Errores en la calidad de datos}
+\begin{itemize}
+    \item \textbf{Plan de mitigación:} Implementar validación automática y limpieza previa del dataset, además de pruebas piloto.
+    \item \textbf{Severidad (S*): 6}.\\
+    \textit{Justificación:} El impacto se reduce porque se asegura la calidad antes del modelado.
+    \item \textbf{Probabilidad (O*): 3}.\\
+    \textit{Justificación:} Con validación y limpieza, la probabilidad de errores disminuye significativamente.
+\end{itemize}
+
+\textbf{Riesgo 4: Falta de disponibilidad de especialistas para validación}
+\begin{itemize}
+    \item \textbf{Plan de mitigación:} Observación semanal de la agenda y coordinación anticipada; aplicar mitigación solo si se detecta falta de disponibilidad.
+    \item \textbf{Severidad (S*): 5}.\\
+    \textit{Justificación:} El impacto se mantiene, pero se reduce el riesgo con planificación.
+    \item \textbf{Probabilidad (O*): 3}.\\
+    \textit{Justificación:} Con coordinación anticipada, la probabilidad baja.
+\end{itemize}
+
+\textbf{Riesgo 5: Incumplimiento de protocolos de seguridad del EA}
+\begin{itemize}
+    \item \textbf{Plan de mitigación:} Observación semanal del cumplimiento normativo; aplicar medidas correctivas si se detecta desviación.
+    \item \textbf{Severidad (S*): 8}.\\
+    \textit{Justificación:} El impacto sigue siendo alto, pero se reduce con controles regulares.
+    \item \textbf{Probabilidad (O*): 2}.\\
+    \textit{Justificación:} Con monitoreo y capacitación, la probabilidad baja.
+\end{itemize}
+
+
+
+%\end{consigna}
 
 \section{14. Sprint Review}
 \label{sec:sprint_review}
 
-La revisión de sprint (\emph{Sprint Review}) es una práctica fundamental en metodologías ágiles. Consiste en revisar y evaluar lo que se ha completado al finalizar un sprint. En esta instancia, se presentan los avances y se verifica si las funcionalidades cumplen con los criterios de aceptación establecidos. También se identifican entregables parciales y se consideran ajustes si es necesario.
+%La revisión de sprint (\emph{Sprint Review}) es una práctica fundamental en metodologías ágiles. Consiste en revisar y evaluar lo que se ha completado al finalizar un sprint. En esta instancia, se presentan los avances y se verifica si las funcionalidades cumplen con los criterios de aceptación establecidos. También se identifican entregables parciales y se consideran ajustes si es necesario.
 
-Aunque el proyecto aún se encuentre en etapa de planificación, esta sección permite proyectar cómo se evaluarán las funcionalidades más importantes del backlog. Esta mirada anticipada favorece la planificación enfocada en valor y permite reflexionar sobre posibles obstáculos.
+%Aunque el proyecto aún se encuentre en etapa de planificación, esta sección permite proyectar cómo se evaluarán las funcionalidades más importantes del backlog. Esta mirada anticipada favorece la planificación enfocada en valor y permite reflexionar sobre posibles obstáculos.
 
-\textbf{Objetivo:} anticipar cómo se evaluará el avance del proyecto a medida que se desarrollen las funcionalidades, utilizando como base al menos cuatro historias de usuario del \emph{Product Backlog}.
+%\textbf{Objetivo:} anticipar cómo se evaluará el avance del proyecto a medida que se desarrollen las funcionalidades, utilizando como base al menos cuatro historias de usuario del \emph{Product Backlog}.
 
 
-Seleccionar al menos 4 HU del Product Backlog. Para cada una, completar la siguiente tabla de revisión proyectada:
+%Seleccionar al menos 4 HU del Product Backlog. Para cada una, completar la siguiente tabla de revisión proyectada:
 
-\textbf{Formato sugerido:}
+%\textbf{Formato sugerido:}
 \begin{table}[htpb]
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{|>{\raggedright\arraybackslash}m{2.4cm}|
-                >{\raggedright\arraybackslash}m{2.3cm}|
+                >{\raggedright\arraybackslash}m{2.8cm}|
                 >{\raggedright\arraybackslash}m{3cm}|
                 >{\raggedright\arraybackslash}m{3cm}|
                 >{\raggedright\arraybackslash}m{3cm}|}
@@ -962,44 +1039,65 @@ Seleccionar al menos 4 HU del Product Backlog. Para cada una, completar la sigui
 \rowcolor[HTML]{CCCCCC}
 \textbf{HU seleccionada} & \textbf{Tareas asociadas} & \textbf{Entregable esperado} & \textbf{¿Cómo sabrás que está cumplida?} & \textbf{Observaciones o riesgos} \\
 \hline
-                         & Tarea 1 &                             &                                           &                                     \\ \cline{2-2}
-\multirow{-2}{=}{HU1}    & Tarea 2 & \multirow{-2}{=}{Módulo funcional} & \multirow{-2}{=}{Cumple criterios de aceptación definidos} & \multirow{-2}{=}{Falta validar con el tutor} \\
+
+\multirow{2}{=}{HU1} & Diseñar formulario dinámico de carga. & \multirow{-2}{=}{Módulo funcional para carga de solicitudes.} & \multirow{-2}{=}{Cumple criterios: validación automática, resumen previo y confirmación.} & \multirow{-2}{=}{Validación con el tutor y pruebas de usabilidad.} \\ \cline{2-2}
+                     & Implementar validaciones automáticas. & & & \\ 
 \hline
-                         & Tarea 1 &                             &                                           &                                     \\ \cline{2-2}
-\multirow{-2}{=}{HU3}    & Tarea 2 & \multirow{-2}{=}{Reporte generado} & \multirow{-2}{=}{Exportación disponible y clara} & \multirow{-2}{=}{Requiere datos reales} \\
+
+\multirow{2}{=}{HU3} & Diseñar motor de categorización de solicitudes. & \multirow{-2}{=}{Panel de consultas filtradas y categorización.} & \multirow{-2}{=}{Cumple criterios: chatbot responde problemas estandarizados y deriva casos complejos.} & \multirow{-2}{=}{Requiere datos reales para pruebas y ajuste de clasificación.} \\ \cline{2-2}
+                     & Configurar panel de consultas filtradas. & & & \\ 
 \hline
-                         & Tarea 1 &                             &                                           &                                     \\ \cline{2-2}
-\multirow{-2}{=}{HU5}    & Tarea 2 & \multirow{-2}{=}{Panel de gestión} & \multirow{-2}{=}{Roles diferenciados operativos} & \multirow{-2}{=}{Riesgo en integración} \\
+
+\multirow{2}{=}{HU5} & Diseñar flujo automatizado para generación de pedidos. & \multirow{-2}{=}{Panel de gestión de solicitudes de compra.} & \multirow{-2}{=}{Cumple criterios: generación de lista en menos de 3 minutos y exportación en formato xlsx.} & \multirow{-2}{=}{Riesgo en integración con base de datos de inventario.} \\ \cline{2-2}
+                     & Integrar con base de datos de inventario. & & & \\ 
 \hline
-                         & Tarea 1 &                             &                                           &                                     \\ \cline{2-2}
-\multirow{-2}{=}{HU7}    & Tarea 2 & \multirow{-2}{=}{Informe trimestral} & \multirow{-2}{=}{PDF con gráficos y evolución} & \multirow{-2}{=}{Puede faltar tiempo para ajustes} \\
+
+\multirow{2}{=}{HU6} & Desarrollar módulo de monitoreo de stock. & \multirow{-2}{=}{Sistema de alertas y reportes de stock.} & \multirow{-2}{=}{Cumple criterios: alertas automáticas y estadísticas claras.} & \multirow{-2}{=}{Puede requerir ajuste en la lógica de alertas.} \\ \cline{2-2}
+                     & Configurar sistema de alertas automáticas. & & & \\ 
 \hline
+
 \end{tabular}
+\caption{Tabla de revisión proyectada de Sprint para HU seleccionadas.}
 \end{table}
+
+\textbf{Justificación de la selección de HU:}
+
+Se han elegido las cuatro Historias de Usuario más críticas para el éxito del proyecto, considerando los siguientes criterios:
+
+\begin{itemize}
+    \item \textbf{Impacto en el objetivo principal:} Las HU seleccionadas son esenciales para optimizar la adquisición de insumos y repuestos, que constituye el propósito central del proyecto.
+    \item \textbf{Dependencias funcionales:} HU1 asegura la correcta carga y validación de datos, base indispensable para el funcionamiento del sistema. HU3 permite la categorización y filtrado eficiente, reduciendo la carga operativa.
+    \item \textbf{Valor para el cliente:} HU5 conecta la predicción con la acción logística mediante la generación automática de pedidos, mientras que HU6 garantiza el control del stock y alertas oportunas, evitando interrupciones en el mantenimiento.
+    \item \textbf{Complejidad y riesgo:} Estas HU presentan alta complejidad técnica y son prioritarias para evitar retrasos y garantizar la funcionalidad clave del sistema.
+\end{itemize}
+
+Por estos motivos, se priorizan HU1, HU3, HU5 y HU6 para la revisión proyectada de Sprint.
+
 
 \section{15. Sprint Retrospective}    
 \label{sec:sprint_retro}
 
-La retrospectiva de sprint es una práctica orientada a la mejora continua. Al finalizar un sprint, el equipo (o el alumno, si trabaja de forma individual) reflexiona sobre lo que funcionó bien, lo que puede mejorarse y qué acciones concretas pueden implementarse para trabajar mejor en el futuro.
+%La retrospectiva de sprint es una práctica orientada a la mejora continua. Al finalizar un sprint, el equipo (o el alumno, si trabaja de forma individual) reflexiona sobre lo que funcionó bien, lo que puede mejorarse y qué acciones concretas pueden implementarse para trabajar mejor en el futuro.
 
-Durante la cursada se propuso el uso de la \textbf{Estrella de la Retrospectiva}, que organiza la reflexión en torno a cinco ejes:
+%Durante la cursada se propuso el uso de la \textbf{Estrella de la Retrospectiva}, que organiza la reflexión en torno a cinco ejes:
 
-\begin{itemize}
-\item  ¿Qué hacer más?
-\item  ¿Qué hacer menos?
-\item  ¿Qué mantener?
-\item  ¿Qué empezar a hacer?
-\item  ¿Qué dejar de hacer?
-\end{itemize}
+%\begin{itemize}
+%\item  ¿Qué hacer más?
+%\item  ¿Qué hacer menos?
+%\item  ¿Qué mantener?
+%\item  ¿Qué empezar a hacer?
+%\item  ¿Qué dejar de hacer?
+%\end{itemize}
 
-Aun en una etapa temprana, esta herramienta permite que el alumno planifique su forma de trabajar, identifique anticipadamente posibles dificultades y diseñe estrategias de organización personal.
+%Aun en una etapa temprana, esta herramienta permite que el alumno planifique su forma de trabajar, identifique anticipadamente posibles dificultades y diseñe estrategias de organización personal.
 
-\textbf{Objetivo:} reflexionar sobre las condiciones iniciales del proyecto, identificando fortalezas, posibles dificultades y estrategias de mejora, incluso antes del inicio del desarrollo.
+%\textbf{Objetivo:} reflexionar sobre las condiciones iniciales del proyecto, identificando fortalezas, posibles dificultades y estrategias de mejora, incluso antes del inicio del desarrollo.
 
 
-Completar la siguiente tabla tomando como referencia los cinco ejes de la Estrella de la Retrospectiva (\emph{Starfish} o estrella de mar). Esta instancia te ayudará a definir buenas prácticas desde el inicio y prepararte para enfrentar el trabajo de forma organizada y flexible. Se deberá completar la tabla al menos para 3 sprints técnicos y 1 no técnico.
+%Completar la siguiente tabla tomando como referencia los cinco ejes de la Estrella de la Retrospectiva (\emph{Starfish} o estrella de mar). Esta instancia te ayudará a definir buenas prácticas desde el inicio y prepararte para enfrentar el trabajo de forma organizada y flexible. Se deberá completar la tabla al menos para 3 sprints técnicos y 1 no técnico.
 
-\textbf{Formato sugerido:}
+%\textbf{Formato sugerido:}
+En este proyecto la retrospectiva se aplicará mediante el método \emph{Estrella}, como herramienta para reflexionar sobre el trabajo realizado y definir acciones concretas que mejoren la organización, reduzcan riesgos y optimicen el desarrollo en cada sprint.
 
 \begin{table}[htpb]
 \renewcommand{\arraystretch}{1.4}
@@ -1013,18 +1111,18 @@ Completar la siguiente tabla tomando como referencia los cinco ejes de la Estrel
 \rowcolor[HTML]{CCCCCC} 
 \textbf{Sprint tipo y N°} & \textbf{¿Qué hacer más?} & \textbf{¿Qué hacer menos?} & \textbf{¿Qué mantener?} & \textbf{¿Qué empezar a hacer?} & \textbf{¿Qué dejar de hacer?} \\
 \hline
-Sprint técnico - 1 & Validaciones continuas con el alumno & Cambios sin versión registrada & Pruebas con datos simulados & Documentar cambios propuestos & Ajustes sin análisis de impacto \\
+Sprint técnico - 1 & Validaciones continuas con el alumno. & Cambios sin versión registrada. & Pruebas con datos simulados. & Documentar cambios propuestos. & Ajustes sin análisis de impacto. \\
 \hline
-Sprint técnico - 2 & Verificar configuraciones en múltiples escenarios & Modificar parámetros sin guardar historial & Perfiles reutilizables & Usar logs para configuración & Repetir pruebas manuales innecesarias \\
+Sprint técnico - 6 & Validar rendimiento en diferentes entornos. & Cambiar configuraciones sin registro. & Uso de logs para trazabilidad. & Planificar pruebas de estrés. & Postergar correcciones críticas. \\
 \hline
-Sprint técnico - 8 & Comparar correlaciones con casos previos & Cambiar parámetros sin justificar & Revisión cruzada de métricas & Anotar configuraciones usadas & Trabajar sin respaldo de datos \\
+Sprint técnico - 8 & Comparar correlaciones con casos previos. & Cambiar parámetros sin justificar. & Revisión cruzada de métricas. & Anotar configuraciones usadas. & Trabajar sin respaldo de datos. \\
 \hline
-Sprint no técnico - 12 (por ej.: ``Defensa'') & Ensayos orales con feedback & Cambiar contenidos en la memoria & Material visual claro & Dividir la presentación por bloques & Agregar gráficos difíciles de explicar \\
+Sprint no técnico - 10 (Documentación) & Redactar secciones con ejemplos claros. & Cambiar estructura sin revisión. & Uso de plantillas oficiales. & Incluir gráficos explicativos. & Agregar contenido redundante. \\
+\hline
+Sprint no técnico - 12 (Defensa) & Ensayos orales con feedback. & Cambiar contenidos en la memoria sin control. & Material visual claro. & Dividir la presentación por bloques. & Agregar gráficos difíciles de explicar. \\
 \hline
 \end{tabular}
+\caption{Tabla de Retrospectiva de Sprint.}
 \end{table}
-
-
-
 
 \end{document}
